@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "focus-side-browser-search",
+    "name": "Browser (side): Search Bar Shortcut",
+    "area": "Browser (side)",
+    "version": "0.3.0-dev.2",
+    "author": "shaboogen",
+    "description": "Adds an action you can give a shortcut: it puts the cursor in the Side Browser's search field from anywhere in the window, without opening or closing the browser.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

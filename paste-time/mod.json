@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "paste-time",
+    "name": "Arranger: Paste Time Makes Room",
+    "area": "Arranger",
+    "version": "1.1.0-dev.13",
+    "author": "shaboogen",
+    "description": "Bitwig's Paste Time inserts time as long as the clipboard before it pastes, so nothing is pasted over.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  }
+}

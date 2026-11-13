@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "shortcut-share-key",
+    "name": "Shortcuts: Share a Key",
+    "area": "Shortcuts",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Adds an Add button to Bitwig's shortcut dialog: give an action a key that other actions already use, and they keep it too.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  }
+}

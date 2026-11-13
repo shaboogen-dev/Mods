@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "shift-select-across-groups",
+    "name": "Arranger: Shift-Select Across Groups",
+    "area": "Arranger",
+    "version": "0.1.0-dev.2",
+    "author": "kalifrn",
+    "description": "Shift-selecting a range of tracks crosses group boundaries, taking every visible track between the two ends.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "sub-division-based-operations",
+    "name": "Piano Roll: Nudge and Resize by Grid",
+    "area": "Piano Roll",
+    "version": "0.2.0-dev.1",
+    "author": "kalifrn",
+    "description": "Actions that move the selected notes one grid step earlier or later, or shorten and lengthen them by one grid step. Assign their keys in Settings > Shortcuts.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "piano-roll-framework", "min_version": "0.1.0-dev.11" },
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

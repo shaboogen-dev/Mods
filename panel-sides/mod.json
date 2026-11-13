@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "panel-sides",
+    "name": "Panel: Streamlined Views",
+    "area": "Panel",
+    "version": "0.5.0-dev.1",
+    "author": "shaboogen",
+    "description": "Replaces ARRANGE, MIX and EDIT with one stack of views, Tracks, Detail Editor and Mixer, shown alone or split, with the device panel below.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "panel-management-framework", "min_version": "0.2.0-dev.1" },
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" },
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "tracks_icon": { "kind": "bitwig", "path": "icons/arranger.svg" },
+    "editor_icon": { "kind": "bitwig", "path": "icons/detail_editor/track_mode.svg" },
+    "mixer_icon": { "kind": "bitwig", "path": "icons/mixer.svg" }
+  },
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "panels",
+      "consumer": "panel-management-framework",
+      "descriptor": "panels.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

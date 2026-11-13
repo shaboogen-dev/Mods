@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "choose-panel-sides",
+    "name": "Panel: Choose Sides",
+    "area": "Panel",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Puts the Inspector and the Browser panel each on the left or the right of the window. Choose in Settings > Mods.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "requires": [
+    { "id": "panel-management-framework", "min_version": "0.2.0-dev.1" },
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" }
+  ],
+  "registrations": [
+    {
+      "id": "panels",
+      "consumer": "panel-management-framework",
+      "descriptor": "panels.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

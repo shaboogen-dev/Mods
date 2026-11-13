@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "add-to-drum-machine",
+    "name": "Browser: Add to Drum Machine",
+    "area": "Browser",
+    "version": "0.1.0-dev.4",
+    "author": "shaboogen",
+    "description": "Puts the samples, instruments and presets selected in the side browser on the next empty pads of the selected track's Drum Machine, as one Undo step.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "requires": [
+    { "id": "action-menu-composition-framework", "min_version": "0.7.0-dev.3" }
+  ],
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

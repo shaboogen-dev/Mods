@@ -1,0 +1,10 @@
+{
+  "release": 21,
+  "kit": true,
+  "classpath_mods": [
+    "piano-roll-framework@0.2.0-dev.1",
+    "inspector-composition-framework@0.3.0-dev.1",
+    "notifications-framework@0.3.0-dev.1",
+    "preferences-composition-framework@1.0.0"
+  ]
+}

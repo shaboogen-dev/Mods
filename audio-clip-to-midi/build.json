@@ -1,0 +1,9 @@
+{
+  "release": 21,
+  "kit": true,
+  "classpath_mods": [
+    "audio-analysis-runtime@0.1.0-dev.5",
+    "action-menu-composition-framework@0.8.0-dev.1",
+    "preferences-composition-framework@1.0.0"
+  ]
+}

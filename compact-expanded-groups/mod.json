@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "compact-expanded-groups",
+    "name": "Arranger: Compact Expanded Groups",
+    "area": "Arranger",
+    "version": "2.0.0-dev.1",
+    "author": "shaboogen",
+    "description": "While a group track is expanded, its own lane is compact and the summary of its clips is drawn faded. A button beside the folder button shows a group at full height.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "BmlCompactExpandedGroups"
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "0.3.0-dev.7" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "chevron_right": { "kind": "bitwig", "path": "icons/fold_arrow_right_small.svg" },
+    "chevron_down": { "kind": "bitwig", "path": "icons/fold_arrow_down_small.svg" }
+  }
+}

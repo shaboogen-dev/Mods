@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "show-chord-name",
+    "name": "Inspector: Show Chord Name",
+    "area": "Inspector",
+    "version": "0.1.0-dev.2",
+    "author": "kalifrn",
+    "description": "Names the chord the selected notes make, such as Cmaj7 or Am7/E, in a block right after the Note Inspector's NOTE block.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "piano-roll-framework",
+      "min_version": "0.1.0-dev.11"
+    },
+    {
+      "id": "inspector-composition-framework",
+      "min_version": "0.3.0-dev.1"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "registrations": [
+    {
+      "id": "inspector",
+      "consumer": "inspector-composition-framework",
+      "descriptor": "inspector-blocks.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

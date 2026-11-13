@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "selected-tracks-view",
+    "name": "Device: Selected Tracks View",
+    "area": "Device",
+    "version": "0.1.0-dev.3",
+    "author": "shaboogen",
+    "description": "Shows the device chains of the selected tracks together, one row per track, in an expanded view that docks like The Grid's. Open it from the track right-click menu or a shortcut.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "0.3.0-dev.8" },
+    { "id": "action-menu-composition-framework", "min_version": "0.7.0-dev.3" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

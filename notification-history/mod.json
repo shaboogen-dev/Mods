@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "notification-history",
+    "name": "Notifications: History",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Clicking the notification dot opens a panel with the live entries and everything shown earlier in this session. Right-click the dot to show or hide the notification overlay.",
+    "area": "Notifications"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "notifications-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "notification-centre",
+      "consumer": "notifications-framework",
+      "descriptor": "notification-centre.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

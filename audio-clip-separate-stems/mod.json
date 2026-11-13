@@ -1,0 +1,56 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "audio-clip-separate-stems",
+    "name": "Audio Clip: Separate Stems",
+    "version": "0.1.0-dev.5",
+    "author": "kalifrn",
+    "description": "Splits an arranger audio clip into vocals, drums, bass and other, as new audio tracks below it. Needs Helper: Audio Analysis with stem separation set up.",
+    "area": "Audio Clip",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "audio-analysis-runtime",
+      "min_version": "0.1.0-dev.5"
+    },
+    {
+      "id": "action-menu-composition-framework",
+      "min_version": "0.8.0-dev.1"
+    },
+    {
+      "id": "preferences-composition-framework",
+      "min_version": "1.0.0"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "stems_icon": {
+      "kind": "bitwig",
+      "path": "icons/action/export_audio.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

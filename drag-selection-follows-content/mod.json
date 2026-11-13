@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "drag-selection-follows-content",
+    "name": "Detail Editor: Drag Selection Follows Content",
+    "area": "Detail Editor",
+    "version": "0.1.0-dev.3",
+    "author": "kalifrn",
+    "description": "When notes or audio events are selected, the selected range stays exactly on them, from the earliest start to the latest end. A drag selection trims to its events on release, and Duplicate follows.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

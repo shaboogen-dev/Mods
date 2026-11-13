@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "line-waveforms",
+    "name": "Interface: Line Waveforms",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Audio is drawn as one continuous line through the samples at close zoom, fading into Bitwig's own drawing further out."
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.linewaveforms.LineWaveforms"
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "0.3.0-dev.7" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

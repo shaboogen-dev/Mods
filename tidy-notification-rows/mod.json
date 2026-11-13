@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "tidy-notification-rows",
+    "name": "Notifications: Tidy Task Rows",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Task rows in the notification centre read title, status, progress bar, then Cancel. The status wraps in the title's font, and the bar stays busy while the progress isn't known.",
+    "area": "Notifications",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "requires": [
+    { "id": "notifications-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "notification-centre",
+      "consumer": "notifications-framework",
+      "descriptor": "notification-centre.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

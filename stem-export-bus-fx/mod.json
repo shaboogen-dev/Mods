@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "stem-export-bus-fx",
+    "name": "Export: Stems with Bus Effects",
+    "area": "Export",
+    "version": "0.1.0-dev.2",
+    "author": "kalifrn",
+    "description": "Adds an option to Export Audio: each stem includes the effects of its groups, the effect tracks it sends to and the master, so the stems add up to the mix.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

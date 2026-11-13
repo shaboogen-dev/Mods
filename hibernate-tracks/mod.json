@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "hibernate-tracks",
+    "name": "Track: Hibernate Tracks",
+    "area": "Track",
+    "version": "0.1.0-dev.12",
+    "author": "shaboogen",
+    "description": "Frees a track's CPU: renders it to a new audio track and deactivates the original. Wake Track brings the original back, following wherever its rendered clips were moved.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.hibernatetracks.HibernateHooks"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "hibernate_icon": { "kind": "bitwig", "path": "icons/action/freeze.svg" },
+    "wake_icon": { "kind": "bitwig", "path": "icons/action/unfreeze.svg" }
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "0.3.0-dev.7" },
+    { "id": "action-menu-composition-framework", "min_version": "0.6.0-dev.2" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

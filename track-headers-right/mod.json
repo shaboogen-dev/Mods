@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "track-headers-right",
+    "name": "Arranger: Track Headers on the Right",
+    "area": "Arranger",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Puts the Arranger's track headers on the right, after the clip launcher and the tool strip.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.trackheadersright.TrackHeadersRight"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

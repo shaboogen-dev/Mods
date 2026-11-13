@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "straight-triplet-grid",
+    "name": "Grid: Straight and Triplet Only",
+    "area": "Grid",
+    "version": "0.1.0-dev.1",
+    "author": "kalifrn",
+    "description": "Takes the 5t and 7t sub-divisions out of the beat grid, so the grid menus and the Smaller and Larger Beat Grid Subdivision actions go between Straight and Triplet only.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

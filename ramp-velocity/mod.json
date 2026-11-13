@@ -1,0 +1,56 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "ramp-velocity",
+    "name": "Piano Roll: Ramp Velocity",
+    "area": "Piano Roll",
+    "version": "0.1.0-dev.4",
+    "author": "kalifrn",
+    "description": "Ramps the selected notes' velocities from a block in the Note Inspector, with exact start and end values and a curve. See the result before you apply it.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "piano-roll-framework",
+      "min_version": "0.2.0-dev.1"
+    },
+    {
+      "id": "inspector-composition-framework",
+      "min_version": "0.3.0-dev.1"
+    },
+    {
+      "id": "notifications-framework",
+      "min_version": "0.3.0-dev.1"
+    },
+    {
+      "id": "preferences-composition-framework",
+      "min_version": "1.0.0"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "registrations": [
+    {
+      "id": "inspector",
+      "consumer": "inspector-composition-framework",
+      "descriptor": "inspector-blocks.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

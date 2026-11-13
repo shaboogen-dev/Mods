@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "quantize-automation-points",
+    "name": "Automation: Quantize Points",
+    "area": "Automation",
+    "version": "0.1.0-dev.3",
+    "author": "shaboogen",
+    "description": "Lets Bitwig's own Quantize move selected automation points to the grid, in arranger automation lanes and clip automation.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

@@ -1,0 +1,26 @@
+# Standard 12: nothing proprietary or generated in git.
+
+# build outputs and Bitwig-derived files (rebuilt from source, never committed)
+*.jar
+*.zip
+*.dll
+*.exe
+*.lib
+*.exp
+*.obj
+*.pdb
+*.class
+*.tsv.gz
+*.sqlite
+*.sqlite-*
+
+# mod dev folders: trial copies and javap dumps of Bitwig code; their source moves to src/ during cleanup
+/*/dev/
+
+__pycache__/
+*.pyc
+
+# bundled runtimes copied into old working folders
+jre/
+*.jmod
+*.jsa

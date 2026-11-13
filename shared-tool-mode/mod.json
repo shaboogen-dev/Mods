@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "shared-tool-mode",
+    "name": "Panel: Shared Tool Mode",
+    "area": "Panel",
+    "version": "0.1.0-dev.5",
+    "author": "shaboogen",
+    "description": "Choosing a tool in one editor chooses it in the arranger and every Detail Editor mode too, in every window and display profile.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

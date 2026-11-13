@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "paste-cut-time-menus",
+    "name": "Arranger: Paste Time and Cut Time in Menus",
+    "area": "Arranger",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Adds Bitwig's Paste Time and Cut Time to the arranger's time-selection menus, beside Insert Silence and Remove Time.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "paste_time_icon": {
+      "kind": "bitwig",
+      "path": "icons/action/insert_silence.svg"
+    },
+    "cut_time_icon": {
+      "kind": "bitwig",
+      "path": "icons/action/remove_time.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

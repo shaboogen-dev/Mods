@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "pitch-expression-pointer",
+    "name": "Piano Roll: Pitch Expression Pointer",
+    "area": "Piano Roll",
+    "version": "0.1.0-dev.9",
+    "author": "shaboogen",
+    "description": "With Alt held, the pointer tool adds, moves and bends pitch expression points on notes with Bitwig's own gestures, without switching to the pitch expression mode.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

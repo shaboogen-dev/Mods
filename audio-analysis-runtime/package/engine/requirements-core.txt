@@ -1,0 +1,56 @@
+# Helper: Audio Analysis, core setup (Audio to MIDI, Detect Key).
+# Installed only when the user chooses Set Up Audio Analysis... in Bitwig and confirms, into the
+# virtual environment in BML's per-user folder, from the Python Package Index, wheels only.
+#
+# A complete lock for CPython 3.12 on Windows x86_64, macOS arm64 and x86_64 (12 or later) and
+# Linux x86_64 and aarch64 (glibc 2.28 or later): pip runs with --no-deps, so exactly these are
+# installed. basic-pitch 0.4.0 declares TensorFlow on Python 3.11+ outside macOS; it runs its ONNX
+# model instead (the saved model ships in its wheel), so onnxruntime replaces TensorFlow everywhere.
+# onnxruntime 1.19.2 is the newest with a wheel for macOS 12. numba 0.62.1 / llvmlite 0.45.1 are the
+# newest with Intel macOS wheels. numpy stays 1.x: PyTorch for Intel macOS (2.2.2) is built on it.
+audioread==3.1.0
+basic-pitch==0.4.0
+certifi==2026.10.23
+cffi==2.1.1
+charset-normalizer==3.5.2
+cloudpickle==3.1.2
+coloredlogs==15.0.1
+decorator==5.3.1
+flatbuffers==25.12.19
+humanfriendly==10.0
+idna==3.20
+imageio-ffmpeg==0.8.1
+importlib_resources==7.1.0
+joblib==1.6.0
+lazy-loader==0.6
+librosa==0.11.0
+llvmlite==0.50.0; sys_platform != "darwin" or platform_machine != "x86_64"
+llvmlite==0.45.1; sys_platform == "darwin" and platform_machine == "x86_64"
+mido==1.3.3
+mir_eval==0.8.2
+mpmath==1.3.0
+msgpack==1.2.4
+narwhals==2.28.0
+numba==0.68.1; sys_platform != "darwin" or platform_machine != "x86_64"
+numba==0.62.1; sys_platform == "darwin" and platform_machine == "x86_64"
+numpy==1.26.4
+onnxruntime==1.19.2
+packaging==26.3
+platformdirs==4.14.5
+pooch==1.9.0
+pretty_midi==0.2.11.post0
+protobuf==7.36.2
+pycparser==3.12
+pyreadline3==3.5.6; sys_platform == "win32"
+requests==2.34.2
+resampy==0.4.2
+scikit-learn==1.9.1
+scipy==1.17.1
+setuptools==80.10.2
+six==1.17.0
+soundfile==0.14.0
+soxr==1.1.0
+sympy==1.14.0
+threadpoolctl==3.8.0
+typing_extensions==4.16.0
+urllib3==2.8.0

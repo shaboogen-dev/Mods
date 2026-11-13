@@ -1,0 +1,64 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "audio-clip-to-midi",
+    "name": "Audio Clip: Audio to MIDI",
+    "version": "0.1.0-dev.5",
+    "author": "kalifrn",
+    "description": "Transcribes an arranger audio clip's melody, harmony or drums into a MIDI clip on a new instrument track. Needs Helper: Audio Analysis set up.",
+    "area": "Audio Clip",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "audio-analysis-runtime",
+      "min_version": "0.1.0-dev.5"
+    },
+    {
+      "id": "action-menu-composition-framework",
+      "min_version": "0.8.0-dev.1"
+    },
+    {
+      "id": "preferences-composition-framework",
+      "min_version": "1.0.0"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "melody_icon": {
+      "kind": "bitwig",
+      "path": "icons/note_editor.svg"
+    },
+    "harmony_icon": {
+      "kind": "bitwig",
+      "path": "icons/device/harmonics_allsvg.svg"
+    },
+    "drums_icon": {
+      "kind": "bitwig",
+      "path": "icons/drum_pads.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

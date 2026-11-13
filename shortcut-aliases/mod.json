@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "shortcut-aliases",
+    "name": "Commander: Assign Aliases to Actions",
+    "area": "Commander",
+    "version": "1.2.0-dev.5",
+    "author": "shaboogen",
+    "description": "Give any action a short alias in Settings > Shortcuts, then type the alias in Commander to find and run the action.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "alias_config_directory": {
+      "kind": "directory",
+      "path": "resources/config",
+      "persistence": "preserve"
+    }
+  }
+}

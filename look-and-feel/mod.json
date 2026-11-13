@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "look-and-feel",
+    "name": "Interface: Smooth Scrolling",
+    "version": "0.4.0-dev.2",
+    "author": "shaboogen",
+    "description": "The scroll wheel glides at your display's rate instead of jumping, over the same distance as in Bitwig. On macOS and Linux, small trackpad movements add up instead of being lost.",
+    "area": "Interface",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.lookandfeel.LookAndFeel"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

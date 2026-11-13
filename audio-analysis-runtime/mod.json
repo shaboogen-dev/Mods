@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "audio-analysis-runtime",
+    "name": "Helper: Audio Analysis",
+    "version": "0.1.0-dev.5",
+    "author": "kalifrn",
+    "description": "Sets up and runs the Python engine the audio clip tools share. Nothing is downloaded until you choose Set Up in an audio clip's right-click menu and confirm.",
+    "area": "Audio Clip",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "notifications-framework",
+      "min_version": "0.3.0-dev.1"
+    },
+    {
+      "id": "action-menu-composition-framework",
+      "min_version": "0.8.0-dev.1"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "engine": {
+      "kind": "directory",
+      "path": "engine"
+    },
+    "runtime": {
+      "kind": "directory",
+      "path": "runtime",
+      "persistence": "preserve"
+    },
+    "setup_icon": {
+      "kind": "bitwig",
+      "path": "icons/download.svg"
+    },
+    "cancel_icon": {
+      "kind": "bitwig",
+      "path": "icons/stop.svg"
+    },
+    "remove_icon": {
+      "kind": "bitwig",
+      "path": "icons/delete.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "legato-later-to-earlier",
+    "name": "Piano Roll: Make Legato (Later → Earlier)",
+    "area": "Piano Roll",
+    "version": "0.1.0-dev.2",
+    "author": "shaboogen",
+    "description": "Moves each selected note's start back to where the note before it ends, closing gaps and overlaps; ends stay where they are. Bitwig's own Make Legato moves the ends instead.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" },
+    { "id": "piano-roll-framework", "min_version": "0.1.0-dev.11" },
+    { "id": "notifications-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "legato_icon": { "kind": "bitwig", "path": "icons/action/legato.svg" }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

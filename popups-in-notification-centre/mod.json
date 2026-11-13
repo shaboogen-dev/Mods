@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "popups-in-notification-centre",
+    "name": "Notifications: Pop-ups in the Centre",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Bitwig's pop-up notifications show as messages in the notification centre instead, and close by themselves after 8 seconds. A controller's pop-ups stay as they are.",
+    "area": "Notifications"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "notifications-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "notification-centre",
+      "consumer": "notifications-framework",
+      "descriptor": "notification-centre.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

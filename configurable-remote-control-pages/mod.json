@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "configurable-remote-control-pages",
+    "name": "Device: More Remote Control Pages",
+    "area": "Device",
+    "version": "1.1.0-dev.2",
+    "author": "shaboogen",
+    "description": "Shows 1, 2 or 3 Remote Controls pages side by side, set per device in the Device Inspector. Previous and Next move by that many pages.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "requires": [
+    { "id": "inspector-composition-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "inspector",
+      "consumer": "inspector-composition-framework",
+      "descriptor": "inspector-blocks.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

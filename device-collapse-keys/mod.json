@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "device-collapse-keys",
+    "name": "Device: Collapse and Expand Shortcuts",
+    "area": "Device",
+    "version": "0.2.0-dev.1",
+    "author": "kalifrn",
+    "description": "Adds Collapse Device and Expand Device shortcuts for the selected devices in a device chain. Assign the keys in Settings > Shortcuts.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" },
+    { "id": "shortcut-share-key", "min_version": "0.1.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  }
+}

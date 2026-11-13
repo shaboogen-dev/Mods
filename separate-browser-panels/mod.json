@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "separate-browser-panels",
+    "name": "Panel: Separate Browser Panels",
+    "area": "Panel",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Shows the Browser, Project, Studio Monitoring and Mappings panels side by side, each a full-height column of its own, instead of as tabs.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "browser_icon": { "kind": "bitwig", "path": "icons/browser_panel.svg" },
+    "project_icon": { "kind": "bitwig", "path": "icons/song_panel.svg" },
+    "studio_icon": { "kind": "bitwig", "path": "icons/output_monitoring.svg" },
+    "mappings_icon": { "kind": "bitwig", "path": "icons/mappings_panel.svg" }
+  },
+  "requires": [
+    { "id": "panel-management-framework", "min_version": "0.2.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "panels",
+      "consumer": "panel-management-framework",
+      "descriptor": "panels.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

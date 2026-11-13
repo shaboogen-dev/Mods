@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "inspector-minimise-blocks",
+    "name": "Inspector: Minimise Blocks",
+    "area": "Inspector",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Puts Bitwig's fold arrow beside the title of each Inspector block. Click it to hide the block's contents and keep just its header.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "inspector-composition-framework",
+      "min_version": "0.3.0-dev.1"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "registrations": [
+    {
+      "id": "inspector",
+      "consumer": "inspector-composition-framework",
+      "descriptor": "inspector-blocks.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

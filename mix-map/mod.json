@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "mix-map",
+    "name": "Panel: Mix Map",
+    "area": "Panel",
+    "version": "0.2.0-dev.1",
+    "author": "shaboogen",
+    "description": "A panel that shows every track as a dot, left to right by pan and top to bottom by volume. Drag the dots to mix.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "panel-management-framework", "min_version": "0.2.0-dev.1" },
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "mix_map_icon": {
+      "kind": "file",
+      "path": "resources/mix-map/mix-map.svg",
+      "media_type": "image/svg+xml"
+    }
+  },
+  "registrations": [
+    {
+      "id": "panels",
+      "consumer": "panel-management-framework",
+      "descriptor": "panels.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

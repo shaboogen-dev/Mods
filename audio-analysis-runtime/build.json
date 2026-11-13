@@ -1,0 +1,8 @@
+{
+  "release": 21,
+  "kit": true,
+  "classpath_mods": [
+    "action-menu-composition-framework@0.8.0-dev.1",
+    "notifications-framework@0.3.0-dev.1"
+  ]
+}

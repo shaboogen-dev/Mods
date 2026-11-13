@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "projects-in-browser",
+    "name": "Browser: Enable Project File Filter",
+    "area": "Browser",
+    "version": "1.2.0-dev.5",
+    "author": "shaboogen",
+    "description": "Shows your project files in the browser's Everything, with a Project filter. Open a project there to see its tracks and drag them into your set.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "browser-framework",
+      "min_version": "0.1.0-dev.43"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "projects_tile": {
+      "kind": "bitwig",
+      "path": "images/library/templates.webp"
+    }
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "ProjectsInBrowser"
+  },
+  "registrations": [
+    {
+      "id": "browser",
+      "consumer": "browser-framework",
+      "descriptor": "browser.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

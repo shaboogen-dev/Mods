@@ -1,0 +1,8 @@
+{
+  "release": 21,
+  "kit": true,
+  "classpath_mods": [
+    "piano-roll-framework@0.1.0-dev.11",
+    "inspector-composition-framework@0.3.0-dev.1"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "audio-clip-detect-key",
+    "name": "Audio Clip: Detect Key",
+    "version": "0.1.0-dev.5",
+    "author": "kalifrn",
+    "description": "Estimates an arranger audio clip's key and can add it to the clip's name, as in \"Chords (Ebmaj)\". Needs Helper: Audio Analysis set up.",
+    "area": "Audio Clip",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "audio-analysis-runtime",
+      "min_version": "0.1.0-dev.5"
+    },
+    {
+      "id": "action-menu-composition-framework",
+      "min_version": "0.8.0-dev.1"
+    },
+    {
+      "id": "preferences-composition-framework",
+      "min_version": "1.0.0"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "estimator": {
+      "kind": "file",
+      "path": "audio_clip_key.py",
+      "media_type": "text/x-python"
+    },
+    "key_icon": {
+      "kind": "bitwig",
+      "path": "icons/scales.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

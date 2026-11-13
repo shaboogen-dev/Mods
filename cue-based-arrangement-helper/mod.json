@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "cue-based-arrangement-helper",
+    "name": "Arranger: Cue-Based Arrangement Helper",
+    "area": "Arranger",
+    "version": "1.1.0-dev.2",
+    "author": "shaboogen",
+    "description": "Moves whole sections between cue markers: drag a cue marker in the Project Panel, or Alt-drag a section in the arranger overview.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.cuearrangement.CueBasedArrangementHelper"
+  }
+}

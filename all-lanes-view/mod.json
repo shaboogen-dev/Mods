@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "all-lanes-view",
+    "name": "Device: All Lanes View",
+    "area": "Device",
+    "version": "0.1.0-dev.10",
+    "author": "shaboogen",
+    "description": "Shows every lane of a layer, selector or split device at once, each with its full device chain, in an expanded view that docks like The Grid's.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

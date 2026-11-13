@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "edit-clips-reliably",
+    "name": "Clips: Edit New Clips Reliably",
+    "area": "Clips",
+    "version": "0.1.0-dev.4",
+    "author": "shaboogen",
+    "description": "With Bitwig's \"Automatically open new clips in Detail Editor Panel\" on, a new clip is always in view in the Detail Editor that opens, also when it opens in the Edit view.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "default-track-height",
+    "name": "Arranger: Default Track Height",
+    "area": "Arranger",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Sets the height new tracks and group tracks start at in the Arranger, with an action that sets every track to it.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.defaulttrackheight.DefaultTrackHeight"
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "0.3.0-dev.7" },
+    { "id": "action-menu-composition-framework", "min_version": "0.6.0-dev.2" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  }
+}

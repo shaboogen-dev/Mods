@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "capture-midi",
+    "name": "Transport: Capture MIDI",
+    "area": "Transport",
+    "version": "0.1.0-dev.4",
+    "author": "kalifrn",
+    "description": "Keeps what you play on MIDI keyboards and the computer keyboard, and turns it into a note clip on demand, without having recorded. One Undo step per capture.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    {
+      "id": "action-menu-composition-framework",
+      "min_version": "0.7.0-dev.3"
+    },
+    {
+      "id": "preferences-composition-framework",
+      "min_version": "0.3.0-dev.7"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    },
+    "capture_icon": {
+      "kind": "bitwig",
+      "path": "icons/action/create_clip.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

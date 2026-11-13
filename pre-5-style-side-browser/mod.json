@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "pre-5-style-side-browser",
+    "name": "Browser: Pre-5.0 Style Side Browser",
+    "area": "Browser",
+    "version": "0.2.0-dev.1",
+    "author": "shaboogen",
+    "description": "The side browser as it was before Bitwig 5: a pane beside the results with Packages, Collections, By Kind and Locations tabs, and a type column. Choose it under Browser view in Settings > Mods.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
+  },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" },
+    { "id": "browser-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "browser",
+      "consumer": "browser-framework",
+      "descriptor": "browser.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

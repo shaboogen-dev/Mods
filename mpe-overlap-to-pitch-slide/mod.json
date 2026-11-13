@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "mpe-overlap-to-pitch-slide",
+    "name": "Piano Roll: Overlaps to Pitch Slides",
+    "area": "Piano Roll",
+    "version": "0.3.0-dev.2",
+    "author": "shaboogen",
+    "description": "Turns overlapping notes into pitch slides, keeping both notes or merging them into one. In the note right-click menu and toolbar dropdown, under Overlapping Notes.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" },
+    { "id": "piano-roll-framework", "min_version": "0.1.0-dev.11" },
+    { "id": "notifications-framework", "min_version": "0.3.0-dev.1" }
+  ],
+  "resources": {
+    "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" },
+    "pitch_icon": {
+      "kind": "bitwig",
+      "path": "icons/expressions/transpose.svg"
+    }
+  },
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}

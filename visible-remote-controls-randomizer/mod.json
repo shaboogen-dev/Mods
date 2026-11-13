@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "visible-remote-controls-randomizer",
+    "name": "Device: Randomise Remote Controls",
+    "area": "Device",
+    "version": "1.1.0-dev.2",
+    "author": "shaboogen",
+    "description": "Randomises the Remote Controls a device shows. Run it from the device's menus, a shortcut, the Commander, or Ctrl+click (Cmd+click on macOS) on the Remote Controls button.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "action-menu-composition-framework", "min_version": "0.8.0-dev.1" }
+  ],
+  "registrations": [
+    {
+      "id": "actions",
+      "consumer": "action-menu-composition-framework",
+      "descriptor": "actions.properties",
+      "jar": "helper.jar"
+    }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  }
+}

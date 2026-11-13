@@ -1,0 +1,40 @@
+# Helper: Audio Analysis, stem separation setup (Separate Stems, and cleaner Audio to MIDI).
+# Installed only when the user chooses Set Up Stem Separation... in Bitwig and confirms, into the
+# same environment, from the Python Package Index, wheels only, with --no-deps (a complete lock,
+# like requirements-core.txt). Demucs is MIT licensed (facebookresearch/demucs).
+#
+# demucs 4.1.0 is installed without sphn, its audio reader, which has no wheels for Intel macOS or
+# Linux on ARM: the engine's own runner (audio_dna_engine/separate.py) decodes with ffmpeg and writes
+# the WAVs, so neither sphn nor torchaudio is needed. PyTorch 2.11.0 is the newest with a wheel for
+# macOS 12 on Apple silicon; Intel macOS ends at 2.2.2 (demucs itself asks for <2.3 there). On Linux
+# the setup installs torch 2.11.0+cpu from PyTorch's CPU index first, which satisfies the pin below.
+anyio==4.16.0
+click==8.5.1
+colorama==0.4.6; sys_platform == "win32"
+demucs==4.1.0
+einops==0.8.2
+filelock==4.2.9
+fsspec==2026.9.0
+h11==0.16.0
+hf-xet==1.8.0
+httpcore2==2.16.0
+httpx2==2.16.0
+huggingface_hub==2.4.0
+idna==3.20
+Jinja2==3.1.6
+julius==0.2.8
+lameenc==1.9.0
+MarkupSafe==3.0.4
+mpmath==1.3.0
+networkx==3.7
+numpy==1.26.4
+packaging==26.3
+PyYAML==6.0.3
+safetensors==0.8.0
+setuptools==80.10.2
+sympy==1.14.0
+torch==2.11.0; sys_platform != "darwin" or platform_machine != "x86_64"
+torch==2.2.2; sys_platform == "darwin" and platform_machine == "x86_64"
+tqdm==4.70.1
+truststore==0.10.5
+typing_extensions==4.16.0

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "panel-scale",
+    "name": "Panel: Scale Each Panel",
+    "area": "Panel",
+    "version": "0.1.0-dev.1",
+    "author": "shaboogen",
+    "description": "Gives each of Bitwig's main panels its own scale, from 75% to 200%. Set it in Settings > Mods, or right-click the panel's button.",
+    "documentation": "readme"
+  },
+  "built_against": {
+    "bitwig_version": "6.1.4",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "requires": [
+    { "id": "panel-management-framework", "min_version": "0.2.0-dev.1" }
+  ],
+  "resources": {
+    "readme": {
+      "kind": "file",
+      "path": "README.md",
+      "media_type": "text/markdown"
+    }
+  },
+  "registrations": [
+    {
+      "id": "panels",
+      "consumer": "panel-management-framework",
+      "descriptor": "panels.properties",
+      "jar": "helper.jar"
+    },
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ]
+}
