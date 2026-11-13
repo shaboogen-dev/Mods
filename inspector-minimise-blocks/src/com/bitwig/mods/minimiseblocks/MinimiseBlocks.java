@@ -51,8 +51,8 @@ public final class MinimiseBlocks implements InspectorProvider {
         String where = context == null ? "other" : context.id();
         String key;
         if (block.bitwigBlock()) {
-            String title = block.title() == null ? "" : block.title().toLowerCase(Locale.ROOT).trim();
-            if (!BITWIG_BLOCKS.contains(title)) return;
+            String title = kind(block.title());
+            if (title == null) return;
             // Bitwig's instrument track block has this shape for one track; other shapes are left alone.
             if (title.equals("instrument track") && group.jm_().size() != 6) return;
             key = "bitwig|" + where + "|" + title;
@@ -64,6 +64,19 @@ public final class MinimiseBlocks implements InspectorProvider {
         } catch (Throwable t) {
             if (REPORTED.add(key)) MOD.log("minimise arrow for " + key + " failed; the block is shown without one", t);
         }
+    }
+
+    /**
+     * Which of Bitwig's blocks a title names, or null. Bitwig titles a panel's main block with the selection's live
+     * text: "NOTE" for one note, "NOTES (8)" for eight. So a count in brackets is dropped and a plural matched to its
+     * singular, and the block keeps its arrow and its state however many are selected when the panel is built.
+     */
+    static String kind(String title) {
+        if (title == null) return null;
+        String t = title.toLowerCase(Locale.ROOT).trim().replaceFirst("\\s*\\(\\d+\\)$", "");
+        if (BITWIG_BLOCKS.contains(t)) return t;
+        if (t.endsWith("s") && BITWIG_BLOCKS.contains(t.substring(0, t.length() - 1))) return t.substring(0, t.length() - 1);
+        return null;
     }
 
     /**

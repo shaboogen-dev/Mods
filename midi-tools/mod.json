@@ -4,7 +4,7 @@
     "id": "midi-tools",
     "name": "Piano Roll: MIDI Tools",
     "area": "Piano Roll",
-    "version": "0.1.0-dev.15",
+    "version": "0.1.0-dev.16",
     "author": "kalifrn",
     "description": "Changes the selected notes from one block in the Note Inspector: stack chords, arpeggiate, strum, chop, quantize, voice-lead and more. See the result before you apply it.",
     "documentation": "readme"

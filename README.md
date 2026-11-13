@@ -21,22 +21,22 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 |---|---|---|---|
 | Framework: Actions and Menus | `action-menu-composition-framework` | 0.8.0-dev.1 | |
 | Arranger: Add Automation Points | `add-automation-points` | 1.1.0-dev.2 | 1.1.0-dev.3 |
-| Framework: Themes | `bte-theme-loader` | 0.9.0-dev.4 | 0.10.0-dev.1 |
+| Framework: Themes | `bte-theme-loader` | 0.10.0-dev.1 | |
 | Commander: Run Order Crash Fix | `commander-dispatch-fix` | 1.2.0-dev.1 | 1.2.0-dev.2 |
 | Commander: Enter Selects First Result | `commander-first-result` | 1.1.0-dev.3 | 1.1.0-dev.4 |
 | Arranger: Compact Expanded Groups | `compact-expanded-groups` | 1.4.0-dev.2 | 2.0.0-dev.1 |
 | Device: More Remote Control Pages | `configurable-remote-control-pages` | 1.1.0-dev.1 | 1.1.0-dev.2 |
 | Arranger: Cue-Based Arrangement Helper | `cue-based-arrangement-helper` | 1.1.0-dev.1 | 1.1.0-dev.2 |
-| Framework: Nitro Devices | `custom-device-registrar` | 1.2.0-dev.4 | 1.3.0-dev.3 |
+| Framework: Nitro Devices | `custom-device-registrar` | 1.3.0-dev.3 | |
 | Device: Keep Plug-in Windows Closed on Insert | `device-window-helper` | 1.1.0-dev.3 | 1.2.0-dev.1 |
 | Track: Exclusive Arm | `exclusive-arm` | 0.1.0-dev.4 | 0.1.0-dev.5 |
 | Browser (side): Search Bar Shortcut | `focus-side-browser-search` | 0.3.0-dev.1 | 0.3.0-dev.2 |
-| Framework: Browser | `browser-framework` | 0.2.0-dev.2 | 0.3.0-dev.1 |
-| Framework: Inspector | `inspector-composition-framework` | 0.2.0-dev.11 | 0.3.0-dev.1 |
-| Framework: Piano Roll | `piano-roll-framework` | 0.1.0-dev.10 | 0.2.0-dev.1 |
-| Framework: Notifications | `notifications-framework` | 0.2.0-dev.3 | 0.3.0-dev.1 |
-| Framework: Plug-in Panels | `plugin-panels-framework` | 0.1.0-dev.14 | 0.3.0-dev.2 |
-| Framework: Panels | `panel-management-framework` | 0.1.0-dev.9 | 0.2.0-dev.2 |
+| Framework: Browser | `browser-framework` | 0.3.0-dev.1 | |
+| Framework: Inspector | `inspector-composition-framework` | 0.3.0-dev.2 | |
+| Framework: Piano Roll | `piano-roll-framework` | 0.2.0-dev.1 | |
+| Framework: Notifications | `notifications-framework` | 0.3.0-dev.1 | |
+| Framework: Plug-in Panels | `plugin-panels-framework` | 0.3.0-dev.2 | |
+| Framework: Panels | `panel-management-framework` | 0.2.0-dev.2 | |
 | Piano Roll: Pencil Pitch Slides | `pencil-modifiers` | 0.1.0-dev.3 | 0.1.0-dev.4 |
 | Piano Roll: Overlaps to Pitch Slides | `mpe-overlap-to-pitch-slide` | 0.2.0-dev.8 | 0.3.0-dev.2 |
 | Panel: Streamlined Views | `panel-sides` | 0.4.0-dev.9 | 0.5.0-dev.1 |
@@ -65,8 +65,8 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Device: Collapse and Expand Shortcuts | `device-collapse-keys` | 0.1.0-dev.2 | 0.2.0-dev.1 |
 | Detail Editor: Drag Selection Follows Content | `drag-selection-follows-content` | 0.1.0-dev.2 | 0.1.0-dev.3 |
 | Track: Hibernate Tracks | `hibernate-tracks` | 0.1.0-dev.9 | 0.1.0-dev.12 |
-| Piano Roll: MIDI Tools | `midi-tools` | 0.1.0-dev.13 | 0.1.0-dev.15 |
-| Piano Roll: Ramp Velocity | `ramp-velocity` | 0.1.0-dev.2 | 0.1.0-dev.4 |
+| Piano Roll: MIDI Tools | `midi-tools` | 0.1.0-dev.13 | 0.1.0-dev.16 |
+| Piano Roll: Ramp Velocity | `ramp-velocity` | 0.1.0-dev.5 | |
 | Arranger: Shift-Select Across Groups | `shift-select-across-groups` | 0.1.0-dev.1 | 0.1.0-dev.2 |
 | Inspector: Show Chord Name | `show-chord-name` | 0.1.0-dev.1 | 0.1.0-dev.2 |
 | Export: Stems with Bus Effects | `stem-export-bus-fx` | 0.1.0-dev.1 | 0.1.0-dev.2 |
@@ -77,15 +77,15 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Device: Selected Tracks View | `selected-tracks-view` | 0.1.0-dev.2 | 0.1.0-dev.3 |
 | Arranger: Default Track Height | `default-track-height` | | 0.1.0-dev.1 |
 | Device: Toggle Enabled Shortcut | `device-toggle-enabled-key` | | 0.1.0-dev.1 |
-| Inspector: Minimise Blocks | `inspector-minimise-blocks` | | 0.1.0-dev.1 |
-| Notifications: History | `notification-history` | | 0.1.0-dev.1 |
-| Panel: Scale Each Panel | `panel-scale` | | 0.1.0-dev.1 |
+| Inspector: Minimise Blocks | `inspector-minimise-blocks` | 0.1.0-dev.2 | |
+| Notifications: History | `notification-history` | 0.1.0-dev.1 | |
+| Panel: Scale Each Panel | `panel-scale` | 0.1.0-dev.1 | |
 | Arranger: Paste Time and Cut Time in Menus | `paste-cut-time-menus` | | 0.1.0-dev.1 |
-| Notifications: Pop-ups in the Centre | `popups-in-notification-centre` | | 0.1.0-dev.1 |
+| Notifications: Pop-ups in the Centre | `popups-in-notification-centre` | 0.1.0-dev.1 | |
 | Device: Right-Click Page Buttons to Edit Remote Controls | `remote-control-page-buttons-edit` | | 0.1.0-dev.1 |
 | Device: Toggle Selected Devices' Windows Together | `selected-device-windows` | | 0.1.0-dev.1 |
 | Arranger: Track Headers on the Right | `track-headers-right` | | 0.1.0-dev.1 |
-| Browser: Hide Parts | `browser-hide-parts` | | 0.1.0-dev.1 |
+| Browser: Hide Parts | `browser-hide-parts` | 0.1.0-dev.1 | |
 | Panel: Choose Sides | `choose-panel-sides` | | 0.1.0-dev.1 |
 | Piano Roll: Make Legato (Later → Earlier) | `legato-later-to-earlier` | | 0.1.0-dev.2 |
 | Detail Editor: Open Maximised | `open-detail-editor-maximised` | | 0.1.0-dev.1 |

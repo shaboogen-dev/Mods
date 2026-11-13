@@ -28,8 +28,8 @@ import java.util.Set;
  * Nothing shows until the user changes From, To or Curve. Then the ramp's outcome is drawn as Bitwig's preview notes
  * with Bitwig's eraser stripes, each note it changes hidden in its old form, as MIDI Tools does. Selecting other notes,
  * editing notes, Undo and Redo take the preview away. Apply prints it as one Undo step and keeps the notes selected.
- * With "Play the preview" on (Settings > Mods), each new preview's notes are auditioned once, and the clip plays the
- * outcome in place of its notes while the preview is shown.
+ * With "Play the preview" on (Settings > Mods), the clip plays the outcome in place of its notes while the preview is
+ * shown, whenever it plays.
  */
 public final class RampVelocityUi implements InspectorProvider {
     private static final Bml.Mod MOD = Bml.mod("ramp-velocity");
@@ -121,9 +121,6 @@ public final class RampVelocityUi implements InspectorProvider {
             previewed = edit;
             shown.onEnded(() -> endedElsewhere(shown));
             STRIPES.show(shown.drawn());
-            if (RampVelocitySettings.playPreview()) {
-                shown.audition(); // a short blip of the outcome, as Bitwig auditions notes while their velocity is dragged
-            }
             saidWhileShowing = null;
         } catch (Refused e) {
             if (!e.getMessage().equals(saidWhileShowing)) { // dragging a value: once, not on every step

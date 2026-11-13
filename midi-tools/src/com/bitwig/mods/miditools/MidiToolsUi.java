@@ -32,8 +32,8 @@ import java.util.Set;
  * notes it would remove or replace are hidden, as Bitwig hides the notes under a drag. Nothing in the project changes
  * until Apply. Selecting other notes, deselecting them, editing notes, Undo and Redo take the
  * preview away and go back to None. Apply prints it as one Undo step, keeps the notes selected and goes back to None.
- * With "Play the preview" on (Settings > Mods), each new preview's notes are auditioned once, and the clip plays the
- * outcome in place of its notes while the preview is shown.
+ * With "Play the preview" on (Settings > Mods), the clip plays the outcome in place of its notes while the preview is
+ * shown, whenever it plays.
  * With None chosen, nothing runs.
  */
 public final class MidiToolsUi implements InspectorProvider {
@@ -161,9 +161,6 @@ public final class MidiToolsUi implements InspectorProvider {
             previewed = edit;
             shown.onEnded(() -> endedElsewhere(shown));
             STRIPES.show(shown.drawn()); // the outcome, striped
-            if (MidiToolsSettings.playPreview()) {
-                shown.audition(); // a short blip of the outcome, as Bitwig auditions notes while their velocity is dragged
-            }
             saidWhileShowing = null;
         } catch (Refused e) {
             String said = tool.label() + ": " + e.getMessage();

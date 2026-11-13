@@ -13,10 +13,7 @@ public final class RampVelocitySettings implements PreferenceProvider {
 
     private static volatile boolean playPreview = STORE.getBoolean(KEY_PLAY_PREVIEW, true);
 
-    /**
-     * Each new preview is auditioned once, and plays in place of the notes it changes while the clip plays. Read for
-     * each new preview.
-     */
+    /** The preview plays in place of the notes it changes whenever the clip plays. Read for each new preview. */
     static boolean playPreview() {
         return playPreview;
     }

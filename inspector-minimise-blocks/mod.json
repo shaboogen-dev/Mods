@@ -4,7 +4,7 @@
     "id": "inspector-minimise-blocks",
     "name": "Inspector: Minimise Blocks",
     "area": "Inspector",
-    "version": "0.1.0-dev.1",
+    "version": "0.1.0-dev.2",
     "author": "shaboogen",
     "description": "Puts Bitwig's fold arrow beside the title of each Inspector block. Click it to hide the block's contents and keep just its header.",
     "documentation": "readme"

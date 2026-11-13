@@ -21,6 +21,6 @@ Gives each of Bitwig's main panels its own scale: 75%, 100% (the default), 125%,
   - A larger Inspector gets wider, as far as its content needs.
   - The pop-up browser (the "+" in a device chain) is its own window and keeps Bitwig's scale.
 
-The scales are kept in your BML settings, not in projects. Turned off, every panel shows at Bitwig's own scale again.
+The scales are kept in your Patchbay settings, not in projects. Turned off, every panel shows at Bitwig's own scale again.
 
 Built against Bitwig 6.1.4 (Windows). Needs **Framework: Panels** and **Framework: Settings**.
