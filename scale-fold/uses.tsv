@@ -1,0 +1,159 @@
+C	DQJ
+C	Izo
+C	JGM
+C	K2Z
+C	Lj2
+C	OqT
+C	RSe
+C	Shc
+C	VJL
+C	VkM
+C	Vlw
+C	W2I
+C	Wjm
+C	Yot
+C	aIL
+C	aKK
+C	aMi
+C	aRB
+C	aZK
+C	b1l
+C	bjf
+C	boq
+C	bpa
+C	bpb
+C	bpc
+C	bpe
+C	com/bitwig/base/geom/jJa
+C	com/bitwig/base/geom/mTn
+C	com/bitwig/base/geom/sD
+C	com/bitwig/flt/document/core/iface/KWY
+C	com/bitwig/flt/widget/core/timeline/dIn
+C	com/bitwig/flt/widget/core/timeline/lsK
+C	com/bitwig/flt/widget/core/timeline/rCU
+C	com/bitwig/flt/widget/core/timeline/yjO
+C	com/bitwig/graphics/NEs
+C	com/bitwig/ramona/core/NEs
+C	com/bitwig/ramona/core/sCv
+C	com/bitwig/ramona/core/sYG
+C	dAi
+C	dTS
+C	dTq
+C	dWx
+C	dvm
+C	dyN
+C	eht
+C	ehx
+C	eiE
+C	eiW
+C	eob
+C	epG
+C	gIW
+C	ggG
+C	gqQ
+C	hFp
+C	isf
+C	jTf
+C	mPN
+C	oto
+C	qSV
+C	rgb
+C	vWT
+C	yRM
+F	K2Z	Gtj	Ljava/util/Comparator;	K2Z
+F	aIL	Dvd	LaMi;	aIL
+F	com/bitwig/base/geom/sD	E3I	Lcom/bitwig/base/geom/sD;	com/bitwig/base/geom/sD
+M	DQJ	k31	()LgqQ;	-
+M	DQJ	wvR	()LaRB;	-
+M	JGM	addListener	(Lrgb;)V	-
+M	JGM	getValue	()Ljava/lang/Object;	JGM
+M	JGM	removeListener	(Lrgb;)V	-
+M	K2Z	GCK	()Ljava/util/List;	nqw
+M	K2Z	NoB	()LYot;	K2Z
+M	K2Z	qQD	()Lisf;	K2Z
+M	Lj2	vhT	()LmPN;	-
+M	OqT	E3I	(IILjava/util/Comparator;)LhFp;	OqT
+M	OqT	JJF	()I	jTf
+M	OqT	gu_	()LK2Z;	LVM
+M	OqT	tFJ	()Ljava/util/List;	jTf
+M	OqT	vhT	(I)LepG;	jTf
+M	OqT	vhT	(IILjava/util/Comparator;)V	OqT
+M	OqT	vhT	(LepG;Z)V	jTf
+M	RSe	lUH	()Lcom/bitwig/ramona/core/NEs;	-
+M	VJL	vhT	(FFFF)LVJL;	VJL
+M	VkM	eCM	()Z	-
+M	Vlw	<init>	(J)V	Vlw
+M	W2I	lUH	()Lcom/bitwig/ramona/core/NEs;	-
+M	Wjm	kpO	()LShc;	-
+M	Yot	fpo	()LVkM;	xMr
+M	Yot	wvR	()LaRB;	xMr
+M	aIL	jl_	()LeiW;	dvm
+M	aIL	tFJ	()LDQJ;	aIM
+M	aIL	vhT	(LdyN;)V	dtX
+M	aKK	THY	(Ljava/lang/Class;)Ljava/lang/Object;	dvm
+M	aKK	VEs	()Lbjf;	aKO
+M	aKK	lUH	(Ljava/lang/Class;)Ljava/util/stream/Stream;	dvm
+M	aMi	Pgr	()Z	dvm
+M	aMi	fpo	()Lbjf;	aMm
+M	aMi	msa	()V	dvm
+M	aMi	vhT	(LaRB;)LdTq;	aMi
+M	aMi	xZH	()LaZK;	aMi
+M	aRB	Kxv	()I	aRB
+M	aZK	vhT	(LaRB;Lbjf;Ljava/util/EnumSet;)V	aZK
+M	b1l	k31	()Ljava/util/BitSet;	b1l
+M	b1l	vhT	(I)Lb1l;	b1l
+M	bjf	Msw	()Lisf;	bjf
+M	bjf	Ptj	()LDQJ;	bjf
+M	bjf	THY	()Lcom/bitwig/flt/document/core/iface/KWY;	bjy
+M	bjf	TPv	()LJGM;	bjf
+M	bjf	dQQ	()V	bjf
+M	boq	pKm	()Lbpb;	boq
+M	bpa	KD	()Lbpc;	bpa
+M	bpa	THY	()I	-
+M	com/bitwig/base/geom/jJa	vhT	()D	com/bitwig/base/geom/jJa
+M	com/bitwig/base/geom/mTn	k31	()J	com/bitwig/base/geom/mTn
+M	com/bitwig/flt/document/core/iface/KWY	aNC	()LggG;	-
+M	com/bitwig/flt/widget/core/timeline/dIn	vhT	(Lbpe;Lcom/bitwig/base/geom/jJa;Z)V	com/bitwig/flt/widget/core/timeline/dIn
+M	com/bitwig/flt/widget/core/timeline/lsK	FeQ	()J	dvm
+M	com/bitwig/flt/widget/core/timeline/lsK	THY	(Ljava/lang/Class;)Ljava/lang/Object;	dvm
+M	com/bitwig/flt/widget/core/timeline/lsK	fOG	()Lbpa;	com/bitwig/flt/widget/core/timeline/lsK
+M	com/bitwig/flt/widget/core/timeline/rCU	BXY	()Lbpa;	com/bitwig/flt/widget/core/timeline/L2b
+M	com/bitwig/flt/widget/core/timeline/rCU	Fho	()LaMi;	com/bitwig/flt/widget/core/timeline/L2b
+M	com/bitwig/flt/widget/core/timeline/yjO	E3I	(Lcom/bitwig/graphics/NEs;DDLcom/bitwig/base/geom/mTn;)V	com/bitwig/flt/widget/core/timeline/yjO
+M	com/bitwig/graphics/NEs	nw_	()Lcom/bitwig/base/geom/mTn;	com/bitwig/graphics/NEs
+M	com/bitwig/graphics/NEs	vhT	(Lcom/bitwig/base/geom/mTn;LVJL;)V	com/bitwig/graphics/NEs
+M	dAi	Cvo	()Lcom/bitwig/ramona/core/sYG;	dAG
+M	dAi	E3I	(LIzo;)V	dvm
+M	dAi	HEY	(LIzo;)V	dvm
+M	dAi	HEY	(Lcom/bitwig/ramona/core/sCv;)V	dnF
+M	dAi	HEY	(Ljava/lang/Runnable;)V	dzp
+M	dAi	THY	(Ljava/lang/String;)V	dzz
+M	dAi	WkC	()LdAi;	dAi
+M	dAi	iUE	(Ljava/lang/String;)V	dwa
+M	dAi	lUH	(F)V	dvm
+M	dAi	vhT	(Lcom/bitwig/ramona/core/sCv;LJGM;)V	dnF
+M	dAi	vhT	(LeiE;)V	dAE
+M	dTS	OpD	()LdTq;	dTZ
+M	dTS	jE_	()Ldvm;	dtX
+M	dTq	Kz	()J	dTt
+M	dTq	kpO	(D)D	dTq
+M	dTq	vhT	(JJFZ)V	dTq
+M	dWx	JQk	(I)LdWx;	dWx
+M	dWx	xwW	(F)V	dvm
+M	dWx	znu	(Ldvm;)V	dwa
+M	ehx	vhT	(Ljava/lang/String;)Leht;	ehx
+M	eiW	W22	()Lehx;	eiX
+M	eob	vhT	(Ldvm;Ldvm;)Lcom/bitwig/base/geom/mTn;	eob
+M	epG	THY	()I	qYC
+M	epG	xwW	()V	epG
+M	gIW	vhT	()LgIW;	gIW
+M	ggG	Ptj	()LLj2;	-
+M	isf	wvR	()LWjm;	isf
+M	jTf	vhT	(LepG;I)V	jTf
+M	mPN	Dvd	()LRSe;	-
+M	mPN	JQk	()LW2I;	-
+M	qSV	<init>	(Loto;LJGM;Ljava/lang/Object;)V	qSV
+M	vWT	<init>	(Z)V	vWT
+M	vWT	getBoolValue	()Z	vWT
+M	vWT	setBoolValue	(Z)V	vWT
+M	yRM	<init>	(LJGM;Ljava/lang/Object;)V	yRM

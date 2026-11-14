@@ -1,0 +1,306 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "scale-fold",
+    "name": "Piano Roll: Scale Fold",
+    "version": "0.1.0-dev.4",
+    "author": "Polarity",
+    "description": "Adds Show Scale Editor below Drum/Hybrid. See every pitch in the current scale, even in an empty clip. Darker rows mark the root and fifth. When you transpose with ↑/↓, the view scrolls only as far as needed to keep the note visible."
+  },
+  "built_against": {
+    "bitwig_version": "6.1.3",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.scalefold.ScaleFold"
+  },
+  "targets": {
+    "aIL.E3I": {
+      "kind": "method",
+      "owner": "aIL",
+      "name": "E3I",
+      "descriptor": "(LDQJ;Lbjf;LaMi;Z)V"
+    },
+    "aIL.vhT": {
+      "kind": "method",
+      "owner": "aIL",
+      "name": "vhT",
+      "descriptor": "(LdyN;)V"
+    },
+    "aZK.vhT": {
+      "kind": "method",
+      "owner": "aZK",
+      "name": "vhT",
+      "descriptor": "(LaRB;Lbjf;Ljava/util/EnumSet;)V"
+    },
+    "bjf.dQQ": {
+      "kind": "method",
+      "owner": "bjf",
+      "name": "dQQ",
+      "descriptor": "()V"
+    },
+    "bjf.fpo": {
+      "kind": "method",
+      "owner": "bjf",
+      "name": "fpo",
+      "descriptor": "()V"
+    },
+    "K2Z.JJF": {
+      "kind": "method",
+      "owner": "K2Z",
+      "name": "JJF",
+      "descriptor": "()V"
+    },
+    "aMi.aboutToPaint": {
+      "kind": "method",
+      "owner": "aMi",
+      "name": "aboutToPaint",
+      "descriptor": "(LdpW;)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.yjO.vhT": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/yjO",
+      "name": "vhT",
+      "descriptor": "(Lcom/bitwig/graphics/NEs;DDLcom/bitwig/base/geom/mTn;)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.yjO.E3I": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/yjO",
+      "name": "E3I",
+      "descriptor": "(Lcom/bitwig/graphics/NEs;DDLcom/bitwig/base/geom/mTn;)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.rCU.vhT": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/rCU",
+      "name": "vhT",
+      "descriptor": "(Lcom/bitwig/graphics/NEs;)V"
+    },
+    "aNi.vhT": {
+      "kind": "method",
+      "owner": "aNi",
+      "name": "vhT",
+      "descriptor": "(Lcom/bitwig/base/geom/jJa;Lcom/bitwig/flt/widget/core/timeline/dIn;)V"
+    },
+    "com.bitwig.flt.widget.core.timeline.dIn.vhT": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/widget/core/timeline/dIn",
+      "name": "vhT",
+      "descriptor": "(Lbpe;Lcom/bitwig/base/geom/jJa;Z)V"
+    },
+    "jTf.E3I": {
+      "kind": "method",
+      "owner": "jTf",
+      "name": "E3I",
+      "descriptor": "(LepG;I)V"
+    },
+    "jTf.vhT": {
+      "kind": "method",
+      "owner": "jTf",
+      "name": "vhT",
+      "descriptor": "(LepG;I)V"
+    },
+    "OqT.E3I": {
+      "kind": "method",
+      "owner": "OqT",
+      "name": "E3I",
+      "descriptor": "(LXCq;LVkM;Ljava/util/Comparator;)V"
+    },
+    "OqT.vhT": {
+      "kind": "method",
+      "owner": "OqT",
+      "name": "vhT",
+      "descriptor": "(LepG;Z)V"
+    },
+    "K2Z.Gtj": {
+      "kind": "field",
+      "owner": "K2Z",
+      "name": "Gtj",
+      "descriptor": "Ljava/util/Comparator;"
+    },
+    "aIL.Dvd": {
+      "kind": "field",
+      "owner": "aIL",
+      "name": "Dvd",
+      "descriptor": "LaMi;"
+    },
+    "aMi.vhT": {
+      "kind": "method",
+      "owner": "aMi",
+      "name": "vhT",
+      "descriptor": "(LaRB;)LdTq;"
+    },
+    "dAE.vhT": {
+      "kind": "method",
+      "owner": "dAE",
+      "name": "vhT",
+      "descriptor": "(LeiE;)V"
+    },
+    "dvm.Pgr": {
+      "kind": "method",
+      "owner": "dvm",
+      "name": "Pgr",
+      "descriptor": "()Z"
+    }
+  },
+  "hooks": [
+    {
+      "id": "add-scale-button",
+      "target": "aIL.E3I",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "aIL.vhT",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "addScaleButton",
+        "descriptor": "(LaIL;LdyN;)V",
+        "args": []
+      }
+    },
+    {
+      "id": "native-mode-selected",
+      "target": "aZK.vhT",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "nativeModeSelected",
+        "descriptor": "(LaRB;Lbjf;)V",
+        "args": [
+          "arg1",
+          "arg2"
+        ]
+      }
+    },
+    {
+      "id": "piano-action",
+      "target": "bjf.dQQ",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "pianoAction",
+        "descriptor": "(Lbjf;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "drum-action",
+      "target": "bjf.fpo",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "drumAction",
+        "descriptor": "(Lbjf;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "fold",
+      "target": "K2Z.JJF",
+      "transform": "INSERT_BEFORE_FINAL_RETURN",
+      "bridge": {
+        "method": "fold",
+        "descriptor": "(LK2Z;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "center-scale-view",
+      "target": "aMi.aboutToPaint",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "centerScaleView",
+        "descriptor": "(LaMi;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "shade-scale-row",
+      "target": "com.bitwig.flt.widget.core.timeline.yjO.vhT",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "com.bitwig.flt.widget.core.timeline.yjO.E3I",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "shadeScaleRow",
+        "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/yjO;Lcom/bitwig/graphics/NEs;DDLcom/bitwig/base/geom/mTn;)V",
+        "args": []
+      }
+    },
+    {
+      "id": "shade-scale-header",
+      "target": "com.bitwig.flt.widget.core.timeline.rCU.vhT",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "shadeScaleHeader",
+        "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/rCU;Lcom/bitwig/graphics/NEs;)V",
+        "args": [
+          "this",
+          "arg1"
+        ]
+      }
+    },
+    {
+      "id": "reveal-note-row",
+      "target": "aNi.vhT",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEINTERFACE",
+        "target": "com.bitwig.flt.widget.core.timeline.dIn.vhT",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "revealNoteRow",
+        "descriptor": "(Lcom/bitwig/flt/widget/core/timeline/dIn;Lbpe;Lcom/bitwig/base/geom/jJa;Z)V",
+        "args": []
+      }
+    },
+    {
+      "id": "add-row",
+      "target": "jTf.E3I",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "jTf.vhT",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "addRow",
+        "descriptor": "(LjTf;LepG;I)V",
+        "args": []
+      }
+    },
+    {
+      "id": "keep-scale-row",
+      "target": "OqT.E3I",
+      "transform": "REPLACE_INVOKE",
+      "match": {
+        "opcode": "INVOKEVIRTUAL",
+        "target": "OqT.vhT",
+        "occurrence": 1
+      },
+      "bridge": {
+        "method": "keepScaleRow",
+        "descriptor": "(LOqT;LepG;Z)V",
+        "args": []
+      }
+    }
+  ],
+  "opens": [
+    "K2Z.Gtj",
+    "aIL.Dvd",
+    "aMi.vhT",
+    "com.bitwig.flt.widget.core.timeline.yjO.E3I",
+    "dAE.vhT",
+    "dvm.Pgr"
+  ]
+}

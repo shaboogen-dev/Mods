@@ -1,0 +1,173 @@
+C	DQJ
+C	Isj
+C	Izo
+C	JGM
+C	KdW
+C	LYu
+C	PkP
+C	QTm
+C	Shc
+C	VJL
+C	Vlw
+C	WGw
+C	XCq
+C	aIL
+C	aMi
+C	aRB
+C	aZK
+C	bjf
+C	boJ
+C	boq
+C	com/bitwig/base/geom/IqL
+C	com/bitwig/base/geom/sD
+C	com/bitwig/base/sound/BkR
+C	com/bitwig/flt/document/api/document/ApiModificationProcessor
+C	com/bitwig/flt/document/core/master/BkR
+C	com/bitwig/flt/document/core/master/IoW
+C	com/bitwig/flt/widget/core/timeline/FLM
+C	com/bitwig/flt/widget/core/timeline/WK
+C	com/bitwig/graphics/NEs
+C	com/bitwig/graphics/qNT
+C	com/bitwig/ramona/core/sCv
+C	com/bitwig/ramona/core/sYG
+C	com/bitwig/ramona/core/xKS
+C	dAi
+C	dJU
+C	dJW
+C	dKa
+C	dWx
+C	dnc
+C	dns
+C	dpW
+C	drm
+C	dse
+C	dvm
+C	dyN
+C	efQ
+C	efu
+C	eht
+C	ehx
+C	eiE
+C	eiW
+C	epe
+C	epf
+C	gIW
+C	isf
+C	jXp
+C	jkg
+C	ooB
+C	vWT
+C	wdk
+C	wwN
+C	yQj
+C	ycA
+F	aIL	Dvd	LaMi;	aIL
+F	aMi	lXL	LdWx;	aMi
+F	aMi	qQD	Lcom/bitwig/flt/widget/core/timeline/WK;	aMi
+F	com/bitwig/base/geom/sD	E3I	Lcom/bitwig/base/geom/sD;	com/bitwig/base/geom/sD
+F	epf	HEY	Lepf;	epf
+F	epf	vhT	Lepf;	epf
+M	DQJ	wvR	()LaRB;	-
+M	KdW	Xzi	()LKdW;	KdW
+M	LYu	QJx	()D	XRh
+M	LYu	THY	(D)V	XRh
+M	LYu	THY	(Z)V	XRh
+M	LYu	Xzi	()I	XRh
+M	LYu	Ynu	()Z	XRh
+M	LYu	iCL	(I)V	XRh
+M	LYu	k31	(Z)V	XRh
+M	LYu	znu	()Z	XRh
+M	QTm	A1	()Ljava/util/List;	BLg
+M	VJL	<init>	(FFFF)V	VJL
+M	VJL	Dvd	()F	VJL
+M	VJL	vhT	()LVJL;	VJL
+M	VJL	vhT	(F)LVJL;	VJL
+M	Vlw	<init>	(J)V	Vlw
+M	WGw	gj_	()Lwdk;	WGw
+M	XCq	THY	()I	-
+M	XCq	vhT	()Ljava/lang/String;	-
+M	aIL	Xzi	(Ldvm;)V	dwa
+M	aIL	jl_	()LeiW;	dvm
+M	aIL	n_	(I)Ldvm;	dwa
+M	aIL	tFJ	()LDQJ;	aIM
+M	aIL	vhT	(LdyN;)V	dtX
+M	aMi	fpo	()Lbjf;	aMm
+M	aMi	xZH	()LaZK;	aMi
+M	aZK	vhT	(LaRB;Lbjf;Ljava/util/EnumSet;)V	aZK
+M	bjf	Gtj	()Lboq;	bjf
+M	bjf	Msw	()Lisf;	bjf
+M	bjf	Ptj	()LDQJ;	bjf
+M	bjf	QNK	()Ljava/util/List;	bjf
+M	boJ	IHn	()Ljkg;	boq
+M	boJ	mV_	()LIsj;	boJ
+M	boJ	mb_	()I	-
+M	boJ	wvR	()LKdW;	boo
+M	com/bitwig/base/geom/IqL	E3I	()Lcom/bitwig/base/geom/IqL;	com/bitwig/base/geom/IqL
+M	com/bitwig/base/geom/IqL	vhT	()Lcom/bitwig/base/geom/IqL;	com/bitwig/base/geom/IqL
+M	com/bitwig/base/sound/BkR	vhT	(IZ)Ljava/lang/String;	com/bitwig/base/sound/BkR
+M	com/bitwig/flt/document/api/document/ApiModificationProcessor	modify	(Ljava/lang/Runnable;)V	com/bitwig/flt/document/api/document/ApiModificationProcessor
+M	com/bitwig/flt/document/core/master/IoW	<init>	()V	com/bitwig/flt/document/core/master/IoW
+M	com/bitwig/flt/document/core/master/IoW	E3I	()Z	com/bitwig/ramona/core/biA
+M	com/bitwig/flt/document/core/master/IoW	vhT	(Lcom/bitwig/ramona/core/xKS;Ljava/lang/String;)Z	com/bitwig/ramona/core/biA
+M	com/bitwig/graphics/NEs	UlY	()V	com/bitwig/graphics/NEs
+M	com/bitwig/graphics/NEs	aAX	()V	com/bitwig/graphics/NEs
+M	com/bitwig/graphics/NEs	vhT	(DDDDLVJL;)V	com/bitwig/graphics/NEs
+M	com/bitwig/graphics/NEs	vhT	(DDLjava/lang/String;LVJL;)V	com/bitwig/graphics/NEs
+M	com/bitwig/graphics/NEs	vhT	(Lcom/bitwig/graphics/qNT;)V	com/bitwig/graphics/NEs
+M	dAi	Cvo	()Lcom/bitwig/ramona/core/sYG;	dAG
+M	dAi	E3I	(LIzo;)V	dvm
+M	dAi	HEY	(LIzo;)V	dvm
+M	dAi	HEY	(Ljava/lang/Runnable;)V	dzp
+M	dAi	THY	(Ljava/lang/String;)V	dzz
+M	dAi	WkC	()LdAi;	dAi
+M	dAi	iUE	(Ljava/lang/String;)V	dwa
+M	dAi	lUH	(F)V	dvm
+M	dAi	vhT	(Lcom/bitwig/ramona/core/sCv;LJGM;)V	dnF
+M	dAi	vhT	(LeiE;)V	dAE
+M	dJW	BS	()D	dJS
+M	dJW	uOI	()D	dJS
+M	dKa	BS	()D	dJS
+M	dKa	uOI	()D	dJS
+M	dWx	JQk	(I)LdWx;	dWx
+M	dWx	fQN	()I	dwa
+M	dWx	n_	(I)Ldvm;	dwa
+M	dWx	xwW	(F)V	dvm
+M	dWx	znu	(Ldvm;)V	dwa
+M	dns	vhT	(LefQ;Ldvm;)Lcom/bitwig/graphics/qNT;	dns
+M	dpW	HEY	()J	dpW
+M	drm	vhT	()V	drm
+M	drm	vhT	(Ldnc;Ldvm;)Ldrm;	drm
+M	dse	<init>	()V	dse
+M	dse	JQk	()V	dse
+M	dvm	<init>	()V	dvm
+M	dvm	E3I	(LIzo;)V	dvm
+M	dvm	YgK	()Z	dwa
+M	dvm	eHZ	(Z)V	dwa
+M	dvm	fQN	()I	dwa
+M	dvm	iy_	()V	dvm
+M	dvm	n_	(I)Ldvm;	dwa
+M	efu	vhT	(Ldvm;)LVJL;	efu
+M	ehx	vhT	(Ljava/lang/String;)Leht;	ehx
+M	eiW	W22	()Lehx;	eiX
+M	epe	vhT	()Z	epe
+M	gIW	vhT	()LgIW;	gIW
+M	isf	RGN	()Z	-
+M	jXp	rqH	()D	XYr
+M	jkg	SkU	()D	-
+M	ooB	THY	()I	ETM
+M	ooB	vhT	()Ljava/util/List;	Uvv
+M	vWT	<init>	(Z)V	vWT
+M	vWT	getBoolValue	()Z	vWT
+M	vWT	setBoolValue	(Z)V	vWT
+M	wdk	Jq	()Lcom/bitwig/flt/document/core/master/BkR;	wdk
+M	wwN	A1	()LyQj;	wwN
+M	wwN	Cvo	()LjXp;	k3Y
+M	wwN	E3I	(J)D	k3Y
+M	wwN	Fho	()Z	tz2
+M	wwN	Gtj	()D	k3Y
+M	wwN	Ptj	()Z	k3Y
+M	wwN	dC_	()D	k3Y
+M	wwN	pS	()LPkP;	fTT
+M	wwN	znu	()LVJL;	-
+M	yQj	JJF	()LQTm;	Baf
+M	ycA	BXY	()Ljava/util/List;	Ima

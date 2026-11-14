@@ -1,0 +1,185 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "step-sequencer",
+    "name": "Piano Roll: Step Sequencer",
+    "version": "0.1.0-dev.5",
+    "author": "Polarity",
+    "description": "Adds a sixteenth-note grid with a playhead to the Detail Editor. Toggle or draw steps and drag set steps to edit velocity, offset, length, repeat, pitch, or chance."
+  },
+  "built_against": {
+    "bitwig_version": "6.1.3",
+    "platform": "windows",
+    "architecture": "x64"
+  },
+  "helper": {
+    "jar": "helper.jar",
+    "class": "com.bitwig.mods.stepsequencer.StepSequencer"
+  },
+  "targets": {
+    "aIL.vhT": {
+      "kind": "method",
+      "owner": "aIL",
+      "name": "vhT",
+      "descriptor": "(LDQJ;Lbjf;LaMi;Z)LaIL;"
+    },
+    "aMi.E3I": {
+      "kind": "method",
+      "owner": "aMi",
+      "name": "E3I",
+      "descriptor": "(LYot;Lbjf;LaZK;)V"
+    },
+    "aZK.vhT": {
+      "kind": "method",
+      "owner": "aZK",
+      "name": "vhT",
+      "descriptor": "(LaRB;Lbjf;Ljava/util/EnumSet;)V"
+    },
+    "bjf.dQQ": {
+      "kind": "method",
+      "owner": "bjf",
+      "name": "dQQ",
+      "descriptor": "()V"
+    },
+    "bjf.fpo": {
+      "kind": "method",
+      "owner": "bjf",
+      "name": "fpo",
+      "descriptor": "()V"
+    },
+    "com.bitwig.flt.document.api.document.ApiModificationProcessor": {
+      "kind": "class",
+      "class": "com/bitwig/flt/document/api/document/ApiModificationProcessor"
+    },
+    "com.bitwig.flt.document.core.master.IoW": {
+      "kind": "class",
+      "class": "com/bitwig/flt/document/core/master/IoW"
+    },
+    "aIL.Dvd": {
+      "kind": "field",
+      "owner": "aIL",
+      "name": "Dvd",
+      "descriptor": "LaMi;"
+    },
+    "aMi.lXL": {
+      "kind": "field",
+      "owner": "aMi",
+      "name": "lXL",
+      "descriptor": "LdWx;"
+    },
+    "aMi.qQD": {
+      "kind": "field",
+      "owner": "aMi",
+      "name": "qQD",
+      "descriptor": "Lcom/bitwig/flt/widget/core/timeline/WK;"
+    },
+    "com.bitwig.flt.document.core.master.IoW.init": {
+      "kind": "method",
+      "owner": "com/bitwig/flt/document/core/master/IoW",
+      "name": "<init>",
+      "descriptor": "()V"
+    },
+    "dAE.vhT": {
+      "kind": "method",
+      "owner": "dAE",
+      "name": "vhT",
+      "descriptor": "(LeiE;)V"
+    },
+    "dse.init": {
+      "kind": "method",
+      "owner": "dse",
+      "name": "<init>",
+      "descriptor": "()V"
+    },
+    "dse.JQk": {
+      "kind": "method",
+      "owner": "dse",
+      "name": "JQk",
+      "descriptor": "()V"
+    },
+    "dvm.init": {
+      "kind": "method",
+      "owner": "dvm",
+      "name": "<init>",
+      "descriptor": "()V"
+    }
+  },
+  "hooks": [
+    {
+      "id": "add-steps-button",
+      "target": "aIL.vhT",
+      "transform": "WRAP_OBJECT_RETURN",
+      "bridge": {
+        "method": "addStepsButton",
+        "descriptor": "(LaIL;)LaIL;",
+        "args": []
+      }
+    },
+    {
+      "id": "mount",
+      "target": "aMi.E3I",
+      "transform": "INSERT_BEFORE_FINAL_RETURN",
+      "bridge": {
+        "method": "mount",
+        "descriptor": "(LaMi;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "native-mode",
+      "target": "aZK.vhT",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "nativeMode",
+        "descriptor": "(Lbjf;)V",
+        "args": [
+          "arg2"
+        ]
+      }
+    },
+    {
+      "id": "piano-mode",
+      "target": "bjf.dQQ",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "pianoMode",
+        "descriptor": "(Lbjf;)V",
+        "args": [
+          "this"
+        ]
+      }
+    },
+    {
+      "id": "drum-mode",
+      "target": "bjf.fpo",
+      "transform": "INSERT_AT_ENTRY",
+      "bridge": {
+        "method": "drumMode",
+        "descriptor": "(Lbjf;)V",
+        "args": [
+          "this"
+        ]
+      }
+    }
+  ],
+  "opens": [
+    "aIL.Dvd",
+    "aMi.lXL",
+    "aMi.qQD",
+    "com.bitwig.flt.document.api.document.ApiModificationProcessor",
+    "com.bitwig.flt.document.core.master.IoW",
+    "com.bitwig.flt.document.core.master.IoW.init",
+    "dAE.vhT",
+    "dse.JQk",
+    "dse.init",
+    "dvm.init"
+  ],
+  "requires": [
+    {
+      "id": "piano-roll-framework",
+      "min_version": "0.1.0-dev.10"
+    }
+  ]
+}
