@@ -22,7 +22,7 @@ A panel that shows every track as a dot, left to right by pan and top to bottom 
 
 ## The panel
 
-- **The stage:** every main track is a dot in its track colour. Group tracks and each of their tracks are included; effect tracks and the master are left out. Left to right is pan, top to bottom is volume (loud at the top), with more room near the top, as on a fader. A ring around a dot shows its level while audio plays. Each selected track's name is shown beside its dot.
+- **The stage:** every main track is a dot in its track colour. Group tracks and each of their tracks are included; effect tracks and the master are left out. Drum Machine pads and layer chains can be shown too (below). Left to right is pan, top to bottom is volume (loud at the top), with more room near the top, as on a fader. A ring around a dot shows its level while audio plays. Each selected track's name is shown beside its dot.
 - **Scales:**
   - The stage's top edge is +6 dB and its bottom edge -inf. Between them are gridlines at 0, -6, -12, -24 and -48 dB, all the same distance apart, labelled beside the centre line.
   - Its left and right edges are L100 and R100, with gridlines at L75, L50, L25, C, R25, R50 and R75, labelled along the bottom.
@@ -49,6 +49,16 @@ A panel that shows every track as a dot, left to right by pan and top to bottom 
   - As dots cross into the scale's wider or narrower bands, the dB differences between them change with the scale.
   - Hold **Shift** while dragging to move along one axis only. The direction you move first decides it (left-right: pan only, up-down: volume only), and releasing Shift frees both again.
 - **Resetting:** **double-click** a dot to reset pan and volume to their defaults. **Cmd-click** (macOS) or **Ctrl-click** resets the volume, **Alt-click** the pan. On a selected dot, these reset every selected dot.
+
+## Drum Machine pads and layers
+
+A track with a Drum Machine, Instrument Layer or FX Layer has an arrow in the list. Click it to show the track's chains as **cells**: each pad's or layer's chain is a dot of its own, listed under the track and indented, nested drum machines and layers further in. Click the arrow again to hide them. Tracks start with their cells hidden.
+- Cells are the chains Bitwig's mixer can show: inactive chains and empty pads aren't there.
+- A cell's dot is a smaller ring in the chain's colour (the track's when the chain has none), with the chain's name beside it in the list.
+- A cell drags, resets and hides as a track's dot does, and the same volume and pan move in the chain's mixer.
+- **Click** a cell to select its track and its chain in the Drum Machine or layer device, as a click on a pad does in Bitwig's device panel. The track's dot isn't ringed for it: the cell stands for it.
+- **Shift-click** and the **rectangle** add cells to Mix Map's selection along with tracks, and dragging any of them moves them all. Cells are selected in Mix Map only; selecting tracks elsewhere in Bitwig clears them.
+- Which tracks are expanded isn't saved: a project opens with every track's cells hidden.
 
 ## Scale and actions
 

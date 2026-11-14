@@ -22,6 +22,10 @@ import com.bitwig.flt.control_surface.values.ValueAtomParameterTarget; // a para
 import com.bitwig.flt.document.core.iface.RYd; // a channel (track, effect track, master)
 import com.bitwig.flt.document.core.iface.kWY; // a group of tracks (the project's root is one)
 import com.bitwig.flt.document.core.iface.pHd; // a project
+import com.bitwig.flt.document.core.master.TL; // a channel with a device chain (a track, or a nested chain)
+import com.bitwig.flt.document.core.master.device.ISf; // a device chain
+import com.bitwig.flt.document.core.master.device.zTz; // a nested chain: a Drum Machine pad's, an Instrument or FX Layer's
+import com.bitwig.flt.document.core.master.device.zZo; // a device's list of nested chains
 import com.bitwig.ramona.core.ESe; // a text value, as Bitwig's code reads and sets one
 
 /**
@@ -47,6 +51,17 @@ import com.bitwig.ramona.core.ESe; // a text value, as Bitwig's code reads and s
  *
  * Volume and pan go through Bitwig's controller parameter targets, so a drag is what a
  * controller's touch / set / release is: one adjusting gesture (one undo step) per drag.
+ *
+ * Cells: a track whose devices have nested chains Bitwig's mixer can show (Drum Machine pads,
+ * Instrument and FX Layer chains, nested ones included) can be expanded (Mix Map's own toggle,
+ * in memory, collapsed at first). Expanded, each active chain follows it as a cell, depth-first
+ * in the mixer's order. A nested chain is a channel too (it has a UUID, name, colour and mixer
+ * with volume, pan and meters), so a cell is a Track like any other. Its selection is two things:
+ * a plain click selects its track alone in Bitwig and the chain (and the chains above it) in its
+ * device, as the device panel does; and Mix Map keeps its own set of selected cells, for Shift,
+ * the rectangle and group drags. A track whose selection a cell click made stands for that cell,
+ * so it isn't counted as selected in Mix Map (no ring, not moved with the group) until the track
+ * selection changes. A change of the track selection anywhere else clears the cells' set.
  */
 final class MixMapModel {
     /** One channel as Mix Map shows it. */
@@ -65,8 +80,18 @@ final class MixMapModel {
         boolean inSelection;  // in Bitwig's track selection (it can hold several)
         boolean hidden;       // its dot is hidden (Mix Map's own choice)
         final String id;      // its UUID as text, null if it has none
+        final boolean cell;   // a nested chain (a pad's, a layer's), not a track
+        Track parent;         // a cell's track or chain above it; null for a track
+        Track owner;          // a cell's track (the top of its parents); a track's own self
+        zZo container;        // a cell's device chain list (where it is selected); null for a track
+        int depth;            // 0 for a track, 1 for its chains, 2 for theirs, ...
+        int index;            // a cell's place in its list
+        boolean hasCells;     // a track with chains to show
+        boolean expanded;     // a track whose cells are shown (Mix Map's own toggle)
 
         Track(RYd channel) {
+            this.cell = channel instanceof zTz;
+            this.owner = this;
             this.channel = channel;
             UUID uuid = channel.kFU(); // the channel's id, kept with the project
             id = uuid != null ? uuid.toString() : null;
@@ -97,6 +122,10 @@ final class MixMapModel {
     private String hiddenText = "";                        // the saved value, as last read
     private Set<String> hiddenIds = new LinkedHashSet<>(); // ... as a set
     private boolean hiddenInMemory;                        // no saved value: the set is kept here only
+    private final Set<Object> expanded = identitySet();    // the tracks whose cells are shown
+    private final Set<Object> cellsChosen = identitySet(); // the cells in Mix Map's selection
+    private Object standIn;                                // a track selected by a cell click: not counted as selected here
+    private List<Object> lastSeen;                         // Bitwig's track selection as last read
 
     MixMapModel(aBW window, String hiddenKey) {
         this.window = window;
@@ -121,26 +150,45 @@ final class MixMapModel {
             iCC selection = trackSelection(project);
             selected = selection != null ? selection.Fsx().getValue() : null; // Fsx(): the current track
             chosen = selection != null ? selection.FzB() : List.of();         // FzB(): the selected tracks
-            for (RYd channel : channels) next.add(known.computeIfAbsent(channel, c -> new Track((RYd) c)));
+            for (RYd channel : channels) {
+                Track track = known.computeIfAbsent(channel, c -> new Track((RYd) c));
+                next.add(track);
+                track.expanded = expanded.contains(channel);
+                ISf devices = channel instanceof TL withDevices ? withDevices.KAS() : null; // KAS(): its device chain
+                track.hasCells = devices != null && addCells(devices, track, track, 1, next, track.expanded);
+            }
+            if (!sameItems(chosen, lastSeen)) { // the track selection changed elsewhere: the cells' set ends
+                lastSeen = new ArrayList<>(chosen);
+                cellsChosen.clear();
+                standIn = null;
+            }
         }
         channels.clear();
-        if (known.size() > next.size()) { // a track went away (known holds every track of next, once)
-            Set<Object> present = Collections.newSetFromMap(new IdentityHashMap<>());
+        if (known.size() > next.size()) { // a track or cell went away, or was collapsed (known holds every entry of next, once)
+            Set<Object> present = identitySet();
             for (Track track : next) present.add(track.channel);
             known.keySet().retainAll(present);
+            expanded.retainAll(present);
+            cellsChosen.retainAll(present);
         }
         readHidden();
 
         long sig = 17;
-        for (Track track : next) {
-            track.name = track.channel.cb_();         // its name
-            track.colour = track.channel.BDm().cfM(); // its colour
+        for (Track track : next) { // a cell's parent comes before it
+            String name = track.channel.cb_();          // its name
+            if (track.cell && (name == null || name.isBlank())) name = "Chain " + (track.index + 1);
+            track.name = name != null ? name : "";
+            iok colour = track.channel.BDm().cfM();      // its colour
+            if (track.cell && (colour == null || colour == iok.Hnt || colour.fJR())) colour = track.parent.colour; // none (grey or clear): its parent's
+            track.colour = colour != null ? colour : iok.Hnt;
             if (track.adjustable()) {
                 track.volumePos = volumeToPosition(track.volumeValue.getCurrentValue(), track.maxVolume());
                 track.panNorm = clamp(track.panValue.getCurrentNormalizedValue());
             }
             track.level = level(track.channel);
-            track.selected = track.channel == selected;
+            track.selected = track.cell
+                    ? track.parent.selected && currentChain(track.container) == track.channel // its track current, and it the chain shown in its device
+                    : track.channel == selected;
             track.hidden = track.id != null && hiddenIds.contains(track.id);
             sig = sig * 31 + System.identityHashCode(track.channel);
             sig = sig * 31 + track.name.hashCode();
@@ -150,6 +198,7 @@ final class MixMapModel {
             sig = sig * 31 + Math.round(track.level * 100);
             sig = sig * 31 + (track.selected ? 1 : 0);
             sig = sig * 31 + (track.hidden ? 1 : 0);
+            sig = sig * 31 + track.depth * 4 + (track.hasCells ? 2 : 0) + (track.expanded ? 1 : 0);
         }
         tracks = next;
         markSelection(chosen);
@@ -165,6 +214,74 @@ final class MixMapModel {
             if (item instanceof RYd channel) into.add(channel);
             if (item instanceof kWY group) addTracks(group.uva(), into); // a group's tracks
         }
+    }
+
+    /**
+     * The device chain's nested chains Bitwig's mixer can show (the lists of its devices flagged to
+     * show their chains in the mixer: Drum Machine pads, Instrument and FX Layers, ...), the
+     * active ones only, as the mixer shows them. With add, each is added as a cell after its
+     * parent, followed by its own nested chains (depth-first, the mixer's order); without, it only
+     * looks. Returns whether there is any.
+     */
+    private boolean addCells(ISf devices, Track parent, Track owner, int depth, List<Track> into, boolean add) {
+        boolean any = false;
+        for (Object list : devices.EUG()) { // EUG(): the device chain's chain lists shown in the mixer
+            if (!(list instanceof zZo container)) continue;
+            List<?> chains = container.MIO(); // MIO(): its chains, in order
+            for (int i = 0; i < chains.size(); i++) {
+                if (!(chains.get(i) instanceof zTz chain) || !chain.jhH()) continue; // jhH(): active
+                any = true;
+                if (!add) return true;
+                Track cell = known.computeIfAbsent(chain, c -> new Track((RYd) c));
+                cell.parent = parent;
+                cell.owner = owner;
+                cell.container = container;
+                cell.depth = depth;
+                cell.index = i;
+                into.add(cell);
+                ISf inner = chain.KAS(); // the chain's own devices
+                if (inner != null) addCells(inner, cell, owner, depth + 1, into, true);
+            }
+        }
+        return any;
+    }
+
+    /** Shows or hides the track's cells (Mix Map's own, in memory). */
+    void toggleExpanded(Track track) {
+        if (track.cell || !track.hasCells) return;
+        if (!expanded.remove(track.channel)) expanded.add(track.channel);
+        track.expanded = expanded.contains(track.channel);
+        refresh();
+    }
+
+    /** The chain list's selection: the chain its device shows (Bitwig's nested chain selection). */
+    private static iCC chainSelection(zZo container) {
+        return container != null && container.Pgx() != null ? container.Pgx().ejd() : null; // Pgx().ejd(): the list's chain selection
+    }
+
+    private static Object currentChain(zZo container) {
+        iCC selection = chainSelection(container);
+        return selection != null ? selection.Fsx().getValue() : null; // Fsx(): its current chain
+    }
+
+    /** Selects the cell's chain in its device, and each chain above it in theirs. */
+    private static void selectChainPath(Track cell) {
+        List<Track> path = new ArrayList<>();
+        for (Track each = cell; each != null && each.cell; each = each.parent) path.add(0, each);
+        for (Track each : path) {
+            iCC selection = chainSelection(each.container);
+            if (selection != null) selection.UNj(each.channel); // UNj: select alone
+        }
+    }
+
+    private static Set<Object> identitySet() {
+        return Collections.newSetFromMap(new IdentityHashMap<>());
+    }
+
+    private static boolean sameItems(List<?> a, List<?> b) {
+        if (b == null || a.size() != b.size()) return false;
+        for (int i = 0; i < a.size(); i++) if (a.get(i) != b.get(i)) return false;
+        return true;
     }
 
     /** The project's track selection (the selected track in the arranger and mixer). */
@@ -192,49 +309,102 @@ final class MixMapModel {
         return project != null ? trackSelection(project) : null;
     }
 
-    /** Selects the track alone and makes it the current track (as a plain click on a track in Bitwig does). */
+    /**
+     * Selects the track alone and makes it the current track (as a plain click on a track in Bitwig
+     * does). For a cell: its track alone and its chain in its device (as a click on a pad or layer in
+     * Bitwig's device panel does), the cell alone in Mix Map's cells.
+     */
     void select(Track track) {
         iCC selection = selection();
-        if (selection != null) selection.UNj(track.channel);
+        cellsChosen.clear();
+        standIn = null;
+        if (selection != null) selection.UNj(track.owner.channel);
+        if (track.cell) {
+            selectChainPath(track);
+            cellsChosen.add(track.channel);
+            standIn = track.owner.channel;
+        }
         readSelection();
     }
 
-    /** Makes the track Bitwig's current track, the selection staying as it is. */
+    /** Makes the track Bitwig's current track, the selection staying as it is; for a cell, shows its chain in its device too. */
     void makeCurrent(Track track) {
         iCC selection = selection();
-        if (selection != null) selection.eLY(track.channel);
+        if (track.cell) {
+            selectChainPath(track);
+            if (selection != null && containsSame(selection.FzB(), track.owner.channel)) selection.eLY(track.owner.channel);
+        } else if (selection != null) {
+            selection.eLY(track.channel);
+        }
         readSelection();
     }
 
     void addToSelection(Track track) {
-        iCC selection = selection();
-        if (selection != null) selection.E3(track.channel);
+        if (track.cell) {
+            cellsChosen.add(track.channel);
+        } else {
+            iCC selection = selection();
+            if (track.channel == standIn) standIn = null; // chosen for itself now
+            if (selection != null) selection.E3(track.channel);
+        }
         readSelection();
     }
 
     void removeFromSelection(Track track) {
-        iCC selection = selection();
-        if (selection != null) selection.wGc(track.channel);
+        if (track.cell) {
+            cellsChosen.remove(track.channel);
+        } else {
+            iCC selection = selection();
+            if (selection != null) selection.wGc(track.channel);
+        }
         readSelection();
     }
 
     void clearSelection() {
         iCC selection = selection();
+        cellsChosen.clear();
+        standIn = null;
         if (selection != null) selection.iSC();
         readSelection();
     }
 
-    /** Everything in Bitwig's track selection now (also what Mix Map doesn't show), to set back later. */
-    List<Object> selectionItems() {
-        iCC selection = selection();
-        return selection != null ? new ArrayList<>(selection.FzB()) : new ArrayList<>();
+    /** Mix Map's whole selection: Bitwig's track selection (also what Mix Map doesn't show) and its own cells, to set back later. */
+    record Chosen(List<Object> items, List<Object> cells, Object standIn) {
     }
 
-    /** Sets Bitwig's track selection to exactly these items (Bitwig removes the others and adds the new ones). */
-    void setSelectionItems(Collection<Object> items) {
+    Chosen chosen() {
         iCC selection = selection();
+        List<Object> items = selection != null ? new ArrayList<>(selection.FzB()) : new ArrayList<>();
+        return new Chosen(items, new ArrayList<>(cellsChosen), standIn);
+    }
+
+    /** The tracks counted as selected in Mix Map: Bitwig's selection without a track a cell click selected. */
+    List<Object> selectedItems(Chosen chosen) {
+        List<Object> items = new ArrayList<>(chosen.items());
+        items.removeIf(item -> item == chosen.standIn());
+        return items;
+    }
+
+    /** Sets Bitwig's track selection to exactly these items (Bitwig removes the others and adds the new ones), and Mix Map's cells. */
+    void setSelection(Collection<Object> items, Collection<Object> cells) {
+        iCC selection = selection();
+        standIn = null;
+        cellsChosen.clear();
+        cellsChosen.addAll(cells);
         if (selection != null) selection.cfM(items);
         readSelection();
+    }
+
+    /** Puts the whole selection back as it was. */
+    void restore(Chosen chosen) {
+        setSelection(chosen.items(), chosen.cells());
+        standIn = chosen.standIn();
+        readSelection();
+    }
+
+    private static boolean containsSame(Collection<?> items, Object item) {
+        for (Object each : items) if (each == item) return true;
+        return false;
     }
 
     /** The tracks Mix Map shows that are in Bitwig's selection, in track order. */
@@ -244,15 +414,22 @@ final class MixMapModel {
         return list;
     }
 
+    /** Reads Bitwig's track selection after Mix Map changed it (so the next frame doesn't take it for a change elsewhere). */
     private void readSelection() {
         iCC selection = selection();
-        markSelection(selection != null ? selection.FzB() : List.of());
+        List<?> chosen = selection != null ? selection.FzB() : List.of();
+        lastSeen = new ArrayList<>(chosen);
+        markSelection(chosen);
     }
 
     private void markSelection(Collection<?> chosen) {
         chosenSet.clear();
         chosenSet.addAll(chosen);
-        for (Track track : tracks) track.inSelection = chosenSet.contains(track.channel);
+        for (Track track : tracks) {
+            track.inSelection = track.cell
+                    ? cellsChosen.contains(track.channel)
+                    : chosenSet.contains(track.channel) && track.channel != standIn;
+        }
         chosenSet.clear();
     }
 

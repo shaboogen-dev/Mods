@@ -4,7 +4,7 @@
     "id": "mix-map",
     "name": "Panel: Mix Map",
     "area": "Panel",
-    "version": "0.2.0-dev.1",
+    "version": "0.2.0-dev.2",
     "author": "shaboogen",
     "description": "A panel that shows every track as a dot, left to right by pan and top to bottom by volume. Drag the dots to mix.",
     "documentation": "readme"

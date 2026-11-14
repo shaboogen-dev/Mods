@@ -45,6 +45,10 @@ import com.bitwig.graphics.SYo; // Bitwig's drawing surface
  * a reset on a selected dot resets them all. Hidden dots stay selected in Bitwig but Mix Map
  * neither moves nor resets them.
  *
+ * Cells (MixMapModel): a track with Drum Machine pads or Instrument / FX Layer chains has an arrow
+ * in the list that shows or hides its cells, indented under it. A cell's dot is a ring (smaller,
+ * a faint fill) in its chain's colour; it drags, resets, hides and selects like a track's.
+ *
  * Dots are drawn in Bitwig's track order, so where they overlap the later track is on top, the
  * selection above the rest and Bitwig's current track above all. A click picks the dot drawn on
  * top under the pointer.
@@ -61,6 +65,9 @@ final class MixMapWidget extends dve implements drv {
     private static final long HALO = 10;
     private static final long SCALE = 18;  // room for the pan scale's labels under the stage
     private static final long SWATCH = 8;  // a list row's colour square
+    private static final long ARROW = 10;  // a list row's column for the arrow that shows a track's cells
+    private static final long INDENT = 10; // a cell's indent in the list, per level
+    private static final long CELL_RADIUS = 5;
     private static final long LOCK_THRESHOLD = 4; // how far the pointer moves with Shift held before the axis is chosen
 
     private ViewContext context;   // what the framework built it for
@@ -257,15 +264,25 @@ final class MixMapWidget extends dve implements drv {
     }
 
     private void paintDot(SYo g, MixMapModel.Track track, iok text, double ascent) {
-        double x = dotX(track), y = dotY(track), r = eLY(DOT_RADIUS);
+        double x = dotX(track), y = dotY(track), r = eLY(track.cell ? CELL_RADIUS : DOT_RADIUS);
         if (track.level > 0.01) { // the level ring
             g.MRY(x, y, r + eLY(HALO) * track.level); // a circle
             g.Hnt(track.colour.cfM((float) (0.25 + 0.35 * track.level)));
             g.wGc();                                  // fill
         }
-        g.MRY(x, y, r);
-        g.Hnt(track.colour);
-        g.wGc();
+        if (track.cell) { // a cell: a ring with a faint fill
+            g.MRY(x, y, r);
+            g.Hnt(track.colour.cfM(0.3F));
+            g.wGc();
+            g.MRY(x, y, r - 1);
+            g.Hnt(track.colour);
+            g.IwV(2);
+            g.hbP();
+        } else {
+            g.MRY(x, y, r);
+            g.Hnt(track.colour);
+            g.wGc();
+        }
         if (track.inSelection) { // a ring: in Bitwig's track selection
             g.MRY(x, y, r + eLY(2));
             g.Hnt(text);
@@ -276,7 +293,7 @@ final class MixMapWidget extends dve implements drv {
 
     /** A selected dot's name, to the right of its ring: the current track's in the full text colour, the others' dimmer. */
     private void paintName(SYo g, MixMapModel.Track track, iok text, double ascent) {
-        double x = dotX(track) + eLY(DOT_RADIUS) + eLY(4), y = dotY(track) + ascent / 2 - 1;
+        double x = dotX(track) + eLY(track.cell ? CELL_RADIUS : DOT_RADIUS) + eLY(4), y = dotY(track) + ascent / 2 - 1;
         g.cfM(x, y, track.name, track.selected ? text : text.cfM(0.6F));
     }
 
@@ -353,20 +370,45 @@ final class MixMapWidget extends dve implements drv {
                 g.Hnt(text.cfM(track.inSelection ? 0.15F : 0.07F));
                 g.wGc();
             }
+            if (track.hasCells) paintArrow(g, left + eLY(4), top + row / 2, track.expanded, text);
             double swatch = eLY(SWATCH);
+            double swatchLeft = swatchLeft(track);
             double swatchTop = top + (row - swatch) / 2;
             if (track.hidden) { // an outline: its dot is hidden
-                g.MRY(left + eLY(6) + 0.5, swatchTop + 0.5, swatch - 1, swatch - 1);
+                g.MRY(swatchLeft + 0.5, swatchTop + 0.5, swatch - 1, swatch - 1);
                 g.Hnt(track.colour);
                 g.IwV(1);
                 g.hbP();
             } else {            // filled: its dot is shown
-                g.MRY(left + eLY(6), swatchTop, swatch, swatch);
+                g.MRY(swatchLeft, swatchTop, swatch, swatch);
                 g.Hnt(track.colour);
                 g.wGc();
             }
-            g.cfM(left + eLY(6) + swatch + eLY(6), top + (row + ascent) / 2 - 1, track.name, track.hidden ? text.cfM(0.4F) : text);
+            g.cfM(swatchLeft + swatch + eLY(6), top + (row + ascent) / 2 - 1, track.name, track.hidden ? text.cfM(0.4F) : text);
         }
+    }
+
+    /** A row's colour square's left edge: after the arrow column, indented by the cell's depth. */
+    private double swatchLeft(MixMapModel.Track track) {
+        return Sxo() - listWidth() + eLY(4) + eLY(ARROW) + track.depth * (double) eLY(INDENT);
+    }
+
+    /** The arrow that shows or hides a track's cells: pointing right while they are hidden, down while shown. */
+    private void paintArrow(SYo g, double x, double centreY, boolean expanded, iok text) {
+        double size = eLY(6);
+        if (expanded) {
+            g.MRY(x, centreY - size / 3);
+            g.cfM(x + size, centreY - size / 3);
+            g.cfM(x + size / 2, centreY + size / 3);
+            g.cfM(x, centreY - size / 3);
+        } else {
+            g.MRY(x + size / 6, centreY - size / 2);
+            g.cfM(x + size / 6 + size / 2, centreY);
+            g.cfM(x + size / 6, centreY + size / 2);
+            g.cfM(x + size / 6, centreY - size / 2);
+        }
+        g.Hnt(text.cfM(0.6F));
+        g.wGc();
     }
 
     private void clampScroll() {
@@ -381,9 +423,15 @@ final class MixMapWidget extends dve implements drv {
         return x >= Sxo() - listWidth();
     }
 
-    /** Whether a point in the list is on (or just beside) a row's colour square. */
-    private boolean onSwatch(double x) {
-        return x < Sxo() - listWidth() + eLY(6) + eLY(SWATCH) + eLY(3);
+    static final int ON_NAME = 0, ON_SWATCH = 1, ON_ARROW = 2;
+
+    /** Where in a row a point is: on the arrow (a track with cells), on (or just beside) the colour square, or on the name. */
+    private int partAt(MixMapModel.Track track, double x) {
+        if (track == null) return ON_NAME;
+        double swatchLeft = swatchLeft(track);
+        if (track.hasCells && x < Sxo() - listWidth() + eLY(4) + eLY(ARROW)) return ON_ARROW;
+        if (x >= swatchLeft - eLY(3) && x < swatchLeft + eLY(SWATCH) + eLY(3)) return ON_SWATCH;
+        return ON_NAME;
     }
 
     private MixMapModel.Track rowAt(double y) {
@@ -462,7 +510,10 @@ final class MixMapWidget extends dve implements drv {
         try {
             if (model.tracks().isEmpty()) model.refresh(); // reads only
             boolean shift = mods.cfM(); // cfM(): Shift among the held keys
-            if (inList(x)) return new ListPress(rowAt(y), y, onSwatch(x), shift);
+            if (inList(x)) {
+                MixMapModel.Track row = rowAt(y);
+                return new ListPress(row, y, partAt(row, x), shift);
+            }
             MixMapModel.Track track = dotAt(x, y);
             if (track == null) return new BandPress(x, y, shift); // empty stage: a selection rectangle, or a click that clears
             if (clicks >= 1) return new DotPress(track, x, y, DotPress.RESET_BOTH, false); // a double-click
@@ -633,22 +684,22 @@ final class MixMapWidget extends dve implements drv {
     }
 
     /**
-     * A press in the list (on the real press): on a row's colour square, hides or shows its dot;
-     * elsewhere on a row, selects its track alone, or with Shift adds it to the selection or takes it
+     * A press in the list (on the real press): on a track's arrow, shows or hides its cells; on a
+     * row's colour square, hides or shows its dot; elsewhere on a row, selects its track alone, or with Shift adds it to the selection or takes it
      * out. Dragging scrolls the list.
      */
     private final class ListPress extends drX {
         private final MixMapModel.Track track; // null: below the last row
         private final double pressY;
-        private final boolean swatch;          // on the colour square
+        private final int part;                // ON_NAME, ON_SWATCH or ON_ARROW
         private final boolean shift;           // Shift held: adds to or takes out of the selection
         private double startScroll;
         private boolean pressed;
 
-        ListPress(MixMapModel.Track track, double y, boolean swatch, boolean shift) {
+        ListPress(MixMapModel.Track track, double y, int part, boolean shift) {
             this.track = track;
             this.pressY = y;
-            this.swatch = swatch;
+            this.part = part;
             this.shift = shift;
         }
 
@@ -659,7 +710,10 @@ final class MixMapWidget extends dve implements drv {
             startScroll = listScroll;
             try {
                 if (track == null) return;
-                if (swatch) {
+                if (part == ON_ARROW) {
+                    model.toggleExpanded(track);
+                    clampScroll();
+                } else if (part == ON_SWATCH) {
                     model.toggleHidden(track);
                 } else if (shift) {
                     if (track.inSelection) model.removeFromSelection(track);
@@ -689,15 +743,15 @@ final class MixMapWidget extends dve implements drv {
 
     /**
      * A press on empty stage (on the real press): dragging draws a rectangle and makes the tracks
-     * of the dots in it Bitwig's selection (with Shift, adds them to it); a click without a drag
+     * of the dots in it Bitwig's selection and its cells Mix Map's (with Shift, adds them); a click without a drag
      * clears the selection (with Shift, leaves it). A cancel (Escape) puts the selection back as it
      * was at the press.
      */
     private final class BandPress extends drX {
         private final double pressX, pressY;
         private final boolean adding;           // Shift held: adds to the selection
-        private List<Object> before = List.of(); // Bitwig's selection at the press (all of it)
-        private List<Object> last;              // what the rectangle last set
+        private MixMapModel.Chosen before;      // the selection at the press (all of it)
+        private List<Object> last;              // what the rectangle last set (tracks, then cells)
         private boolean pressed;
         private boolean dragged;
 
@@ -711,7 +765,7 @@ final class MixMapWidget extends dve implements drv {
         public void cfM(dJH press) {
             if (pressed) return;
             pressed = true;
-            before = model.selectionItems();
+            before = model.chosen();
         }
 
         @Override
@@ -721,11 +775,18 @@ final class MixMapWidget extends dve implements drv {
             if (!dragged && Math.max(Math.abs(x - pressX), Math.abs(y - pressY)) < eLY(2)) return;
             dragged = true;
             band = new double[] {pressX, pressY, x, y};
-            List<Object> chosen = new ArrayList<>(adding ? before : List.of());
-            for (MixMapModel.Track track : dotsIn(band)) if (!containsSame(chosen, track.channel)) chosen.add(track.channel);
-            if (!chosen.equals(last)) { // only when the rectangle took in or let go of a dot
-                last = chosen;
-                model.setSelectionItems(chosen);
+            List<Object> chosen = new ArrayList<>(adding ? model.selectedItems(before) : List.of());
+            List<Object> cells = new ArrayList<>(adding ? before.cells() : List.of());
+            for (MixMapModel.Track track : dotsIn(band)) {
+                List<Object> into = track.cell ? cells : chosen;
+                if (!containsSame(into, track.channel)) into.add(track.channel);
+            }
+            List<Object> both = new ArrayList<>(chosen);
+            both.add(this); // a separator: tracks before it, cells after
+            both.addAll(cells);
+            if (!both.equals(last)) { // only when the rectangle took in or let go of a dot
+                last = both;
+                model.setSelection(chosen, cells);
             }
             jbi();
         }
@@ -742,7 +803,7 @@ final class MixMapWidget extends dve implements drv {
         /** A cancel (Escape, or Bitwig ending the gesture): the selection as it was. */
         @Override
         public void FzB() {
-            if (pressed && dragged) model.setSelectionItems(before);
+            if (pressed && dragged) model.restore(before);
             band = null;
             jbi();
             super.FzB();
