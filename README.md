@@ -47,7 +47,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Device: Optional Plug-in Undo Steps | `plugin-undo` | 1.1.0-dev.2 | 1.1.0-dev.3 |
 | Framework: Settings | `preferences-composition-framework` | 1.0.0 | |
 | Browser: Enable Project File Filter | `projects-in-browser` | 1.2.0-dev.4 | 1.2.0-dev.5 |
-| Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.1.0-dev.6 | 0.2.0-dev.1 |
+| Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.2.0-dev.1 | |
 | Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.2.0-dev.1 | 1.3.0-dev.1 |
 | Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0-dev.4 | 1.2.0-dev.5 |
 | Shortcuts: Share a Key | `shortcut-share-key` | 0.1.0-dev.1 | |
