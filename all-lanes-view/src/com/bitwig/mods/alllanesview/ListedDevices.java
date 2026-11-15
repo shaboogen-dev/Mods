@@ -34,6 +34,8 @@ import com.bitwig.flt.device.Wkj; // a device type's ID
  * Provisional list (9 Nov), until the final one is decided. Edit it here and rebuild.
  */
 final class ListedDevices {
+    private static final UUID DRUM_MACHINE = UUID.fromString("8ea97e45-0255-40fd-bc7e-94419741e9d1");
+
     private ListedDevices() {
     }
 
@@ -54,6 +56,7 @@ final class ListedDevices {
     private static final Model ALL_NATURAL = new Model(true, List.of(), true);
 
     private static final Map<UUID, Model> DEVICES = Map.ofEntries(
+            Map.entry(DRUM_MACHINE, LANES),
             device("956e396b-07c5-4430-a58d-8dcfc316522a", LANES), // FX Selector
             device("a0913b7f-096b-4ac9-bddd-33c775314b42", LANES), // FX Layer
             device("214857d6-b468-4257-9bc9-92f017af1782", // Multiband FX-2
@@ -111,6 +114,10 @@ final class ListedDevices {
     static boolean listed(R1Z device) {
         UUID id = id(device);
         return id != null && DEVICES.containsKey(id);
+    }
+
+    static boolean drumMachine(R1Z device) {
+        return DRUM_MACHINE.equals(id(device));
     }
 
     /** How the device's lanes are found; a lane list only for a device that isn't listed. */

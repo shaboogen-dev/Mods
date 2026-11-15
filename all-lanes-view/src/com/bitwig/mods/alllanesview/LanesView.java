@@ -38,6 +38,7 @@ import bitwig.obf.eiH; // the theme
 import bitwig.obf.ejt; // a colour
 import bitwig.obf.foz; // a value listener
 import bitwig.obf.kn; // a size policy: the natural size
+import bitwig.obf.liP; // a Drum Machine's pad-chain list
 import bitwig.obf.pPb; // an observable list
 import bitwig.obf.rMe; // a value a widget property can be bound to
 import bitwig.obf.w3; // Bitwig's standard widget sizes
@@ -123,7 +124,7 @@ final class LanesView extends dtX implements aDn {
     LanesView(R1Z device) {
         super();
         this.device = device;
-        GzC container = device.TMF();
+        GzC container = laneContainer(device);
         this.lanes = container != null ? container.iCS() : null;
         zqN(); // set the dialog up
         column = new Column(); // a column
@@ -178,12 +179,21 @@ final class LanesView extends dtX implements aDn {
     record Lane(Sas chain, LJt name) {
     }
 
+    private static GzC laneContainer(R1Z device) {
+        if (ListedDevices.drumMachine(device)) {
+            for (Object component : device.E3()) {
+                if (component instanceof liP pads) return pads;
+            }
+        }
+        return device.TMF();
+    }
+
     /**
      * The device's lanes, each shown as one row. A device's model (see {@link ListedDevices}) is read
      * here in one pass so that every device gets the same rows:
      * <ul>
-     * <li>its lane list (layers, selectors): the container's chains ({@code R1Z.TMF()}), named by the
-     * chain's own name, as Bitwig's lane list names them;</li>
+     * <li>its lane list (layers, selectors) or Drum Machine pad chains, named by each chain's
+     * own name;</li>
      * <li>its fixed slots: the device's nested chain slots ({@code R1Z.E3()}, the slot components
      * {@code alw}), each the slot's chain ({@code alw.hUR()}) named by the slot's name
      * ({@code alw.FzB()}, the "name" attribute; {@code alw.cfM()} is the same name as a string), as
@@ -195,7 +205,7 @@ final class LanesView extends dtX implements aDn {
      */
     static List<Lane> chains(R1Z device) {
         List<Lane> out = new ArrayList<>();
-        GzC container = device.TMF();
+        GzC container = laneContainer(device);
         if (container != null) {
             for (Object o : container.MIO()) { // its lanes
                 if (o instanceof Sas lane && !has(out, lane)) out.add(new Lane(lane, lane.z3I()));
