@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import bitwig.obf.AQw; // a saved on/off value (here: a panel's "is shown")
 import bitwig.obf.aBW; // a window's project view (its layout widgets and view settings)
@@ -69,6 +70,7 @@ final class Streamlined implements LayoutPolicy {
         final akz mainCase;         // the main area's one layout
         final akZ keyboardSplit;    // the window's split above the on-screen keyboard; null: no full width
         final akn arrange, mix, edit;
+        final Map<gJi, akn> modesBeforeEdit = new WeakHashMap<>();
         PassThroughSplitter fullWidth; // the device panel's split across the full width, once made
 
         Profile(Layout layout, ajv tracks, ajS devices, akw views, akZ mainDevices, MainArea main, akZ keyboardSplit, akn arrange, akn mix, akn edit) {
@@ -273,11 +275,31 @@ final class Streamlined implements LayoutPolicy {
 
     // ---------- Modes as presets ----------
 
+    /** Keeps EDIT selectable by the native shortcut while it remains a regular mode. */
+    static akn editViewToggle(akC profile, akn currentMode) {
+        Profile p = PROFILES.get(profile);
+        if (p == null) return profile.cfM(currentMode); // Bitwig's toggle-mode lookup
+        return currentMode == p.edit ? null : p.edit; // null runs the action's return path
+    }
+
+    static void editViewToggleBack(gJi settings) {
+        Profile p = PROFILES.get(settings.IwV());
+        if (p == null) {
+            settings.UNj(); // Bitwig's return to the previous mode
+            return;
+        }
+        settings.cfM(p.modesBeforeEdit.getOrDefault(settings, p.arrange));
+    }
+
     /** A mode is being chosen in a project's view settings: show its view alone. */
     static void modeChosen(rsB settings, akn mode) {
         if (!(settings instanceof gJi viewSettings) || mode == null) return;
         Profile p = PROFILES.get(viewSettings.IwV()); // the settings' profile
         if (p == null) return;
+        akn currentMode = settings.vpw();
+        if (mode == p.edit && (currentMode == p.arrange || currentMode == p.mix)) {
+            p.modesBeforeEdit.put(viewSettings, currentMode);
+        }
         String view = p.viewOf(mode);
         if (view != null) p.layout.showOnly(viewSettings, MOD_ID, view);
     }

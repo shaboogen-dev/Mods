@@ -43,6 +43,7 @@ Bitwig's own panel shortcuts under this layout:
 
 | Bitwig action | Under this layout |
 |---|---|
+| Toggle maximized editing mode | Detail Editor alone on the first press, the previous Tracks or Mixer mode on the next. A project opened directly in Edit returns to Tracks. |
 | Switch to Mode 1 / 2 / 3 | Tracks alone / Mixer alone / Detail Editor alone |
 | Select Next Mode, Select Previous Mode | goes through Tracks, Mixer and Detail Editor alone |
 | Toggle Device Panel, Focus/toggle Device Panel | better unbound: use Show or Hide Device Panel. Focus/toggle only focuses the device panel on the first press when it isn't focused; Toggle reaches the mixer's own device section while the Mixer is shown |
@@ -50,7 +51,7 @@ Bitwig's own panel shortcuts under this layout:
 | Toggle Arranger Timeline Panel, Toggle Clip Editor Panel, Toggle Mixer Panel (and their Focus/toggle versions) | still show or hide that view, but can hide the last one and leave the area empty: use the actions above instead |
 
 Bitwig's three modes still exist behind the scenes, as presets: **ARRANGE** shows Tracks alone, **MIX** the Mixer alone, **EDIT** the Detail Editor alone; the device panel is left as it is. Other mods' views have no mode, so the modes hide them. So "Switch to Mode 1-3", controller scripts that ask for a mode, and projects saved in a mode all give that view.
-- Choosing EDIT again no longer jumps back to the previous mode, and "next / previous mode" goes through all three.
+- Show Detail Editor and Switch to Mode 3 select EDIT every time. Next and previous mode go through all three.
 - A project that opens with no view shown (for example one saved with only a view whose mod is now off) gets its mode's view.
 
 The other display profiles keep Bitwig's modes. There, other mods' views appear as tabs of each mode's lower panel (see Framework: Panels).

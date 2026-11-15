@@ -16,6 +16,7 @@ import bml.api.Hook;
 import bml.api.This;
 import com.bitwig.base.geom.IBe; // the bottom bar's row style
 import com.bitwig.flt.app.CHR; // the application (its windows)
+import com.bitwig.flt.document_view_settings.gJi; // a project's view settings for one display profile
 import com.bitwig.flt.document_view_settings.rsB; // the base of a project's view settings: holds the current mode
 
 /**
@@ -87,6 +88,20 @@ public final class PanelSides {
         } catch (Throwable failure) {
             MOD.log("Could not apply the views of mode " + (mode == null ? null : mode.tSS()), failure);
         }
+    }
+
+    /** The mode lookup used by Bitwig's Toggle maximized editing mode action. */
+    @Hook(target = aBW.class, method = "uW3()V", at = At.REPLACE_CALL, id = "edit-view-toggle",
+          callOwner = akC.class, call = "cfM(Lakn;)Lakn;")
+    public static akn editViewToggle(akC profile, akn currentMode) {
+        return Streamlined.editViewToggle(profile, currentMode);
+    }
+
+    /** The return path used by Bitwig's Toggle maximized editing mode action. */
+    @Hook(target = aBW.class, method = "uW3()V", at = At.REPLACE_CALL, id = "edit-view-toggle-back",
+          callOwner = gJi.class, call = "UNj()V")
+    public static void editViewToggleBack(gJi settings) {
+        Streamlined.editViewToggleBack(settings);
     }
 
     /**
