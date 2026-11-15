@@ -6,7 +6,7 @@
     "area": "Browser (side)",
     "version": "0.3.0-dev.7",
     "author": "shaboogen",
-    "description": "Enter in the Side Browser inserts a result as if you dropped it on the track: the selected result from the list, or the first result from the search field.",
+    "description": "Enter in the Side Browser inserts a result as if you dropped it on the track: the selected result from the list, or the first result from the search field",
     "documentation": "readme"
   },
   "built_against": {

@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.2.0-dev.1",
     "author": "kalifrn",
-    "description": "Actions that move the selected notes one grid step earlier or later, or shorten and lengthen them by one grid step. Assign their keys in Settings > Shortcuts.",
+    "description": "Actions that move the selected notes one grid step earlier or later, or shorten and lengthen them by one grid step. Assign their keys in Settings > Shortcuts",
     "documentation": "readme"
   },
   "built_against": {

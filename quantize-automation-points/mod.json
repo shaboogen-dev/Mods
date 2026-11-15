@@ -6,7 +6,7 @@
     "area": "Automation",
     "version": "0.1.0-dev.3",
     "author": "shaboogen",
-    "description": "Lets Bitwig's own Quantize move selected automation points to the grid, in arranger automation lanes and clip automation.",
+    "description": "Lets Bitwig's own Quantize move selected automation points to the grid, in arranger automation lanes and clip automation",
     "documentation": "readme"
   },
   "built_against": {

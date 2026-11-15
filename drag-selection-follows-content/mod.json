@@ -6,7 +6,7 @@
     "area": "Detail Editor",
     "version": "0.1.0-dev.3",
     "author": "kalifrn",
-    "description": "When notes or audio events are selected, the selected range stays exactly on them, from the earliest start to the latest end. A drag selection trims to its events on release, and Duplicate follows.",
+    "description": "When notes or audio events are selected, the selected range stays exactly on them, from the earliest start to the latest end. A drag selection trims to its events on release, and Duplicate follows",
     "documentation": "readme"
   },
   "built_against": {

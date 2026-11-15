@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "0.1.0-dev.2",
     "author": "kalifrn",
-    "description": "Shift-selecting a range of tracks crosses group boundaries, taking every visible track between the two ends.",
+    "description": "Shift-selecting a range of tracks crosses group boundaries, taking every visible track between the two ends",
     "documentation": "readme"
   },
   "built_against": {

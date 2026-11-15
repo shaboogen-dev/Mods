@@ -6,7 +6,7 @@
     "area": "Track",
     "version": "0.1.0-dev.5",
     "author": "shaboogen",
-    "description": "Arming a track for recording disarms every other track. Shift-click an arm button to arm only that track, even with the option off.",
+    "description": "Arming a track for recording disarms every other track. Shift-click an arm button to arm only that track, even with the option off",
     "documentation": "readme"
   },
   "built_against": {

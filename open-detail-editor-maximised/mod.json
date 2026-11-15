@@ -6,7 +6,7 @@
     "area": "Detail Editor",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Opening a clip in the Detail Editor shows the Detail Editor as the main content, as Bitwig's Toggle maximized editing mode does.",
+    "description": "Opening a clip in the Detail Editor shows the Detail Editor as the main content, as Bitwig's Toggle maximized editing mode does",
     "documentation": "readme"
   },
   "built_against": {

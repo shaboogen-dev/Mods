@@ -6,7 +6,7 @@
     "area": "Browser",
     "version": "0.2.0-dev.1",
     "author": "shaboogen",
-    "description": "The side browser as it was before Bitwig 5: a pane beside the results with Packages, Collections, By Kind and Locations tabs, and a type column. Choose it under Browser view in Settings > Mods.",
+    "description": "The side browser as it was before Bitwig 5: a pane beside the results with Packages, Collections, By Kind and Locations tabs, and a type column. Choose it under Browser view in Settings > Mods",
     "documentation": "readme"
   },
   "built_against": {

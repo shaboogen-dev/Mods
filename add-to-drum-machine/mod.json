@@ -6,7 +6,7 @@
     "area": "Browser",
     "version": "0.1.0-dev.4",
     "author": "shaboogen",
-    "description": "Puts the samples, instruments and presets selected in the side browser on the next empty pads of the selected track's Drum Machine, as one Undo step.",
+    "description": "Puts the samples, instruments and presets selected in the side browser on the next empty pads of the selected track's Drum Machine, as one Undo step",
     "documentation": "readme"
   },
   "built_against": {

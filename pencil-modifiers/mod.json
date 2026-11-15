@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.1.0-dev.4",
     "author": "shaboogen",
-    "description": "Hold Alt as you release a note drawn with the pencil over another note: a menu turns the overlap into a pitch slide or merges the notes, in one Undo step with the drawn note.",
+    "description": "Hold Alt as you release a note drawn with the pencil over another note: a menu turns the overlap into a pitch slide or merges the notes, in one Undo step with the drawn note",
     "documentation": "readme"
   },
   "built_against": {

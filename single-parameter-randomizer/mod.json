@@ -4,9 +4,9 @@
     "id": "single-parameter-randomizer",
     "name": "Parameter: Randomise Hovered Parameter",
     "area": "Parameter",
-    "version": "1.4.0-dev.2",
+    "version": "1.4.0",
     "author": "shaboogen",
-    "description": "Sets one parameter to a random value: the one under the mouse when you press the shortcut, or the one you right-click.",
+    "description": "Adds functionality to set a random value for a parameter being hovered over by the mouse pointer",
     "documentation": "readme"
   },
   "built_against": {

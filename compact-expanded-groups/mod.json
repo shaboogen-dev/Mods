@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "2.0.0-dev.1",
     "author": "shaboogen",
-    "description": "While a group track is expanded, its own lane is compact and the summary of its clips is drawn faded. A button beside the folder button shows a group at full height.",
+    "description": "While a group track is expanded, its own lane is compact and the summary of its clips is drawn faded. A button beside the folder button shows a group at full height",
     "documentation": "readme"
   },
   "built_against": {

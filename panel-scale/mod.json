@@ -6,7 +6,7 @@
     "area": "Panel",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Gives each of Bitwig's main panels its own scale, from 75% to 200%. Set it in Settings > Mods, or right-click the panel's button.",
+    "description": "Gives each of Bitwig's main panels its own scale, from 75% to 200%. Set it in Settings > Mods, or right-click the panel's button",
     "documentation": "readme"
   },
   "built_against": {

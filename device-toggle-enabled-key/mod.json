@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "0.1.0-dev.1",
     "author": "kalifrn",
-    "description": "Adds a Toggle Device Enabled shortcut that switches the selected devices in a device chain on or off. Assign the key in Settings > Shortcuts.",
+    "description": "Adds a Toggle Device Enabled shortcut that switches the selected devices in a device chain on or off. Assign the key in Settings > Shortcuts",
     "documentation": "readme"
   },
   "built_against": {

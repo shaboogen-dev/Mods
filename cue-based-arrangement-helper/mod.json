@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "1.1.0-dev.2",
     "author": "shaboogen",
-    "description": "Moves whole sections between cue markers: drag a cue marker in the Project Panel, or Alt-drag a section in the arranger overview.",
+    "description": "Moves whole sections between cue markers: drag a cue marker in the Project Panel, or Alt-drag a section in the arranger overview",
     "documentation": "readme"
   },
   "built_against": {

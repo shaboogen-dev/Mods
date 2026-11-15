@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.1.0-dev.1",
     "author": "kalifrn",
-    "description": "Cuts the selected notes on the grid lines inside them, as one Undo step. In the notes' right-click menu, and as an action you can give a key in Settings > Shortcuts.",
+    "description": "Cuts the selected notes on the grid lines inside them, as one Undo step. In the notes' right-click menu, and as an action you can give a key in Settings > Shortcuts",
     "documentation": "readme"
   },
   "built_against": {

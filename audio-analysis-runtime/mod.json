@@ -5,7 +5,7 @@
     "name": "Helper: Audio Analysis",
     "version": "0.1.0-dev.5",
     "author": "kalifrn",
-    "description": "Sets up and runs the Python engine the audio clip tools share. Nothing is downloaded until you choose Set Up in an audio clip's right-click menu and confirm.",
+    "description": "Sets up and runs the Python engine the audio clip tools share. Nothing is downloaded until you choose Set Up in an audio clip's right-click menu and confirm",
     "area": "Audio Clip",
     "documentation": "readme"
   },

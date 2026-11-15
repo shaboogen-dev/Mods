@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.1.0-dev.5",
     "author": "kalifrn",
-    "description": "Ramps the selected notes' velocities from a block in the Note Inspector, with exact start and end values and a curve. See the result before you apply it.",
+    "description": "Ramps the selected notes' velocities from a block in the Note Inspector, with exact start and end values and a curve. See the result before you apply it",
     "documentation": "readme"
   },
   "built_against": {

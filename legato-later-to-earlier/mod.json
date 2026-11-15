@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.1.0-dev.2",
     "author": "shaboogen",
-    "description": "Moves each selected note's start back to where the note before it ends, closing gaps and overlaps; ends stay where they are. Bitwig's own Make Legato moves the ends instead.",
+    "description": "Moves each selected note's start back to where the note before it ends, closing gaps and overlaps; ends stay where they are. Bitwig's own Make Legato moves the ends instead",
     "documentation": "readme"
   },
   "built_against": {

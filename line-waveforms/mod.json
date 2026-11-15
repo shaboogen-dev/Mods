@@ -5,7 +5,7 @@
     "name": "Interface: Line Waveforms",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Audio is drawn as one continuous line through the samples at close zoom, fading into Bitwig's own drawing further out."
+    "description": "Audio is drawn as one continuous line through the samples at close zoom, fading into Bitwig's own drawing further out"
   },
   "built_against": {
     "bitwig_version": "6.1.4",

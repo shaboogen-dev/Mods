@@ -5,7 +5,7 @@
     "name": "Notifications: History",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Clicking the notification dot opens a panel with the live entries and everything shown earlier in this session. Right-click the dot to show or hide the notification overlay.",
+    "description": "Clicking the notification dot opens a panel with the live entries and everything shown earlier in this session. Right-click the dot to show or hide the notification overlay",
     "area": "Notifications"
   },
   "built_against": {

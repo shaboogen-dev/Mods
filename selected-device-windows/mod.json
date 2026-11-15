@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "With several devices selected on a track, showing or hiding one device's window does the same for every selected device.",
+    "description": "With several devices selected on a track, showing or hiding one device's window does the same for every selected device",
     "documentation": "readme"
   },
   "built_against": {

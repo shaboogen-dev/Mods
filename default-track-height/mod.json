@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Sets the height new tracks and group tracks start at in the Arranger, with an action that sets every track to it.",
+    "description": "Sets the height new tracks and group tracks start at in the Arranger, with an action that sets every track to it",
     "documentation": "readme"
   },
   "built_against": {

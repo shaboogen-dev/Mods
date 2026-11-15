@@ -5,7 +5,7 @@
     "name": "Audio Clip: Detect Key",
     "version": "0.1.0-dev.5",
     "author": "kalifrn",
-    "description": "Estimates an arranger audio clip's key and can add it to the clip's name, as in \"Chords (Ebmaj)\". Needs Helper: Audio Analysis set up.",
+    "description": "Estimates an arranger audio clip's key and can add it to the clip's name, as in \"Chords (Ebmaj)\". Needs Helper: Audio Analysis set up",
     "area": "Audio Clip",
     "documentation": "readme"
   },

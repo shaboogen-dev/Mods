@@ -5,7 +5,7 @@
     "name": "Notifications: Tidy Task Rows",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Task rows in the notification centre read title, status, progress bar, then Cancel. The status wraps in the title's font, and the bar stays busy while the progress isn't known.",
+    "description": "Task rows in the notification centre read title, status, progress bar, then Cancel. The status wraps in the title's font, and the bar stays busy while the progress isn't known",
     "area": "Notifications",
     "documentation": "readme"
   },

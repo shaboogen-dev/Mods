@@ -6,7 +6,7 @@
     "area": "Panel",
     "version": "0.5.0-dev.1",
     "author": "shaboogen",
-    "description": "Replaces ARRANGE, MIX and EDIT with one stack of views, Tracks, Detail Editor and Mixer, shown alone or split, with the device panel below.",
+    "description": "Replaces ARRANGE, MIX and EDIT with one stack of views, Tracks, Detail Editor and Mixer, shown alone or split, with the device panel below",
     "documentation": "readme"
   },
   "built_against": {

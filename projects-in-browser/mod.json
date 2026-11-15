@@ -6,7 +6,7 @@
     "area": "Browser",
     "version": "1.2.0-dev.5",
     "author": "shaboogen",
-    "description": "Shows your project files in the browser's Everything, with a Project filter. Open a project there to see its tracks and drag them into your set.",
+    "description": "Shows your project files in the browser's Everything, with a Project filter. Open a project there to see its tracks and drag them into your set",
     "documentation": "readme"
   },
   "built_against": {

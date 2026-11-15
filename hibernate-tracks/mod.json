@@ -6,7 +6,7 @@
     "area": "Track",
     "version": "0.1.0-dev.12",
     "author": "shaboogen",
-    "description": "Frees a track's CPU: renders it to a new audio track and deactivates the original. Wake Track brings the original back, following wherever its rendered clips were moved.",
+    "description": "Frees a track's CPU: renders it to a new audio track and deactivates the original. Wake Track brings the original back, following wherever its rendered clips were moved",
     "documentation": "readme"
   },
   "built_against": {

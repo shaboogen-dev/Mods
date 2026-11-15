@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "0.1.0-dev.3",
     "author": "shaboogen",
-    "description": "Shows the device chains of the selected tracks together, one row per track, in an expanded view that docks like The Grid's. Open it from the track right-click menu or a shortcut.",
+    "description": "Shows the device chains of the selected tracks together, one row per track, in an expanded view that docks like The Grid's. Open it from the track right-click menu or a shortcut",
     "documentation": "readme"
   },
   "built_against": {

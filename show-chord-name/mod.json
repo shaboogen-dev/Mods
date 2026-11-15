@@ -6,7 +6,7 @@
     "area": "Inspector",
     "version": "0.1.0-dev.2",
     "author": "kalifrn",
-    "description": "Names the chord the selected notes make, such as Cmaj7 or Am7/E, in a block right after the Note Inspector's NOTE block.",
+    "description": "Names the chord the selected notes make, such as Cmaj7 or Am7/E, in a block right after the Note Inspector's NOTE block",
     "documentation": "readme"
   },
   "built_against": {

@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "0.2.0-dev.1",
     "author": "kalifrn",
-    "description": "Adds Collapse Track and Expand Track shortcuts for the selected arranger tracks: a track goes to its smallest height and back, a group folds and unfolds. Assign the keys in Settings > Shortcuts.",
+    "description": "Adds Collapse Track and Expand Track shortcuts for the selected arranger tracks: a track goes to its smallest height and back, a group folds and unfolds. Assign the keys in Settings > Shortcuts",
     "documentation": "readme"
   },
   "built_against": {

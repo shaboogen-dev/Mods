@@ -5,7 +5,7 @@
     "name": "Audio Clip: Audio to MIDI",
     "version": "0.1.0-dev.5",
     "author": "kalifrn",
-    "description": "Transcribes an arranger audio clip's melody, harmony or drums into a MIDI clip on a new instrument track. Needs Helper: Audio Analysis set up.",
+    "description": "Transcribes an arranger audio clip's melody, harmony or drums into a MIDI clip on a new instrument track. Needs Helper: Audio Analysis set up",
     "area": "Audio Clip",
     "documentation": "readme"
   },

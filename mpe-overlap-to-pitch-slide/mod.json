@@ -6,7 +6,7 @@
     "area": "Piano Roll",
     "version": "0.3.0-dev.2",
     "author": "shaboogen",
-    "description": "Turns overlapping notes into pitch slides, keeping both notes or merging them into one. In the note right-click menu and toolbar dropdown, under Overlapping Notes.",
+    "description": "Turns overlapping notes into pitch slides, keeping both notes or merging them into one. In the note right-click menu and toolbar dropdown, under Overlapping Notes",
     "documentation": "readme"
   },
   "built_against": {

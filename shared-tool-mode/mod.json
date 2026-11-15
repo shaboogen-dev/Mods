@@ -6,7 +6,7 @@
     "area": "Panel",
     "version": "0.1.0-dev.5",
     "author": "shaboogen",
-    "description": "Choosing a tool in one editor chooses it in the arranger and every Detail Editor mode too, in every window and display profile.",
+    "description": "Choosing a tool in one editor chooses it in the arranger and every Detail Editor mode too, in every window and display profile",
     "documentation": "readme"
   },
   "built_against": {

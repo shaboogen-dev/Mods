@@ -6,7 +6,7 @@
     "area": "Panel",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Puts the Inspector and the Browser panel each on the left or the right of the window. Choose in Settings > Mods.",
+    "description": "Puts the Inspector and the Browser panel each on the left or the right of the window. Choose in Settings > Mods",
     "documentation": "readme"
   },
   "built_against": {

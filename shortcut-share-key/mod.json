@@ -6,7 +6,7 @@
     "area": "Shortcuts",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Adds an Add button to Bitwig's shortcut dialog: give an action a key that other actions already use, and they keep it too.",
+    "description": "Adds an Add button to Bitwig's shortcut dialog: give an action a key that other actions already use, and they keep it too",
     "documentation": "readme"
   },
   "built_against": {

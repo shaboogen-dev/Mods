@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Puts the Arranger's track headers on the right, after the clip launcher and the tool strip.",
+    "description": "Puts the Arranger's track headers on the right, after the clip launcher and the tool strip",
     "documentation": "readme"
   },
   "built_against": {

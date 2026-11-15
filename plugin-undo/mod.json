@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "1.1.0-dev.3",
     "author": "shaboogen",
-    "description": "Changes made inside VST and CLAP plug-ins no longer fill Bitwig's Undo history. Turn them back on in Settings > Mods.",
+    "description": "Changes made inside VST and CLAP plug-ins no longer fill Bitwig's Undo history. Turn them back on in Settings > Mods",
     "documentation": "readme"
   },
   "built_against": {

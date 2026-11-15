@@ -6,7 +6,7 @@
     "area": "Commander",
     "version": "1.1.0-dev.4",
     "author": "shaboogen",
-    "description": "After you type a search in Commander, Enter runs the first result when no result is selected, instead of closing Commander.",
+    "description": "After you type a search in Commander, Enter runs the first result when no result is selected, instead of closing Commander",
     "documentation": "readme"
   },
   "built_against": {

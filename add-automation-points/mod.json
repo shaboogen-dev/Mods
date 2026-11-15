@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "1.1.0-dev.3",
     "author": "shaboogen",
-    "description": "Adds points at the start and end of an automation time selection, with the values and the curve you set in a dialog.",
+    "description": "Adds points at the start and end of an automation time selection, with the values and the curve you set in a dialog",
     "documentation": "readme"
   },
   "built_against": {

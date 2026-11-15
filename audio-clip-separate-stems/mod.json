@@ -5,7 +5,7 @@
     "name": "Audio Clip: Separate Stems",
     "version": "0.1.0-dev.5",
     "author": "kalifrn",
-    "description": "Splits an arranger audio clip into vocals, drums, bass and other, as new audio tracks below it. Needs Helper: Audio Analysis with stem separation set up.",
+    "description": "Splits an arranger audio clip into vocals, drums, bass and other, as new audio tracks below it. Needs Helper: Audio Analysis with stem separation set up",
     "area": "Audio Clip",
     "documentation": "readme"
   },

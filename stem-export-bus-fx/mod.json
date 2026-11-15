@@ -6,7 +6,7 @@
     "area": "Export",
     "version": "0.1.0-dev.2",
     "author": "kalifrn",
-    "description": "Adds an option to Export Audio: each stem includes the effects of its groups, the effect tracks it sends to and the master, so the stems add up to the mix.",
+    "description": "Adds an option to Export Audio: each stem includes the effects of its groups, the effect tracks it sends to and the master, so the stems add up to the mix",
     "documentation": "readme"
   },
   "built_against": {

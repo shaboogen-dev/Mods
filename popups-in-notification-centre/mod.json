@@ -5,7 +5,7 @@
     "name": "Notifications: Pop-ups in the Centre",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Bitwig's pop-up notifications show as messages in the notification centre instead, and close by themselves after 8 seconds. A controller's pop-ups stay as they are.",
+    "description": "Bitwig's pop-up notifications show as messages in the notification centre instead, and close by themselves after 8 seconds. A controller's pop-ups stay as they are",
     "area": "Notifications"
   },
   "built_against": {

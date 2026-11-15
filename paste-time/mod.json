@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "1.1.0-dev.13",
     "author": "shaboogen",
-    "description": "Bitwig's Paste Time inserts time as long as the clipboard before it pastes, so nothing is pasted over.",
+    "description": "Bitwig's Paste Time inserts time as long as the clipboard before it pastes, so nothing is pasted over",
     "documentation": "readme"
   },
   "built_against": {

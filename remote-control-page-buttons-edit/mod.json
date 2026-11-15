@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "A right-click on a device's Remote Controls Previous or Next page button opens Bitwig's Remote Controls editor.",
+    "description": "A right-click on a device's Remote Controls Previous or Next page button opens Bitwig's Remote Controls editor",
     "documentation": "readme"
   },
   "built_against": {

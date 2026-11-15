@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "1.2.0-dev.1",
     "author": "shaboogen",
-    "description": "Inserting an instrument or effect no longer opens its plug-in window. You can still open it yourself.",
+    "description": "Inserting an instrument or effect no longer opens its plug-in window. You can still open it yourself",
     "documentation": "readme"
   },
   "built_against": {

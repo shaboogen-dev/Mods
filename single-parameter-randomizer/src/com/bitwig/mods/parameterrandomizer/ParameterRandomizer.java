@@ -1,5 +1,6 @@
 package com.bitwig.mods.parameterrandomizer;
 
+import bitwig.obf.Czc; // something that names an undo step
 import bitwig.obf.bDH; // a parameter
 import bitwig.obf.z2X; // a parameter that can be set
 import bml.api.At;
@@ -7,6 +8,7 @@ import bml.api.Bml;
 import bml.api.Hook;
 import bml.api.This;
 import com.bitwig.flt.document.core.master.g2L; // the project, which knows the parameter under the mouse
+import com.bitwig.ramona.core.oDc; // a document object, which can run code as one undo step
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -40,10 +42,25 @@ public final class ParameterRandomizer {
         return parameter instanceof z2X p && p.d3();
     }
 
+    /**
+     * Sets a random value as one undo step of its own.
+     *
+     * <p>A parameter's own setter opens an undo step that merges with the previous
+     * step when it starts within 800 ms of it (that's how a knob turn is one step),
+     * so presses in quick succession used to land in one step. The setter is run
+     * inside an undo step that Bitwig opens without that merge rule: the setter's
+     * step nests in it, and the next edit doesn't merge with it either.
+     */
     static void randomize(Object parameter, String source) {
         if (!settable(parameter)) return;
+        z2X settable = (z2X) parameter;
         double value = ThreadLocalRandom.current().nextDouble();
-        ((z2X) parameter).FzB(value); // normalised value, 0 to 1
+        Runnable set = () -> settable.FzB(value); // normalised value, 0 to 1
+        if (parameter instanceof oDc owner) {
+            owner.cfM((Czc) owner, set); // one undo step, named after the parameter
+        } else {
+            set.run();
+        }
         MOD.log("RUN source=" + source + " normalized=" + value);
     }
 }

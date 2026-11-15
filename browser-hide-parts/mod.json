@@ -6,7 +6,7 @@
     "area": "Browser",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Hides parts of the side browser you don't use: the Quick Sources toolbar, the filters, search suggestions and the details pane. Choose them in Settings > Mods.",
+    "description": "Hides parts of the side browser you don't use: the Quick Sources toolbar, the filters, search suggestions and the details pane. Choose them in Settings > Mods",
     "documentation": "readme"
   },
   "built_against": {

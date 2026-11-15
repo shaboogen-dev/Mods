@@ -6,7 +6,7 @@
     "area": "Panel",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Shows the Browser, Project, Studio Monitoring and Mappings panels side by side, each a full-height column of its own, instead of as tabs.",
+    "description": "Shows the Browser, Project, Studio Monitoring and Mappings panels side by side, each a full-height column of its own, instead of as tabs",
     "documentation": "readme"
   },
   "built_against": {

@@ -6,7 +6,7 @@
     "area": "Arranger",
     "version": "0.1.0-dev.1",
     "author": "shaboogen",
-    "description": "Adds Bitwig's Paste Time and Cut Time to the arranger's time-selection menus, beside Insert Silence and Remove Time.",
+    "description": "Adds Bitwig's Paste Time and Cut Time to the arranger's time-selection menus, beside Insert Silence and Remove Time",
     "documentation": "readme"
   },
   "built_against": {

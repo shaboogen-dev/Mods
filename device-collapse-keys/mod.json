@@ -6,7 +6,7 @@
     "area": "Device",
     "version": "0.2.0-dev.1",
     "author": "kalifrn",
-    "description": "Adds Collapse Device and Expand Device shortcuts for the selected devices in a device chain. Assign the keys in Settings > Shortcuts.",
+    "description": "Adds Collapse Device and Expand Device shortcuts for the selected devices in a device chain. Assign the keys in Settings > Shortcuts",
     "documentation": "readme"
   },
   "built_against": {

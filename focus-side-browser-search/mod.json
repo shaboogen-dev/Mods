@@ -6,7 +6,7 @@
     "area": "Browser (side)",
     "version": "0.3.0-dev.2",
     "author": "shaboogen",
-    "description": "Adds an action you can give a shortcut: it puts the cursor in the Side Browser's search field from anywhere in the window, without opening or closing the browser.",
+    "description": "Adds an action you can give a shortcut: it puts the cursor in the Side Browser's search field from anywhere in the window, without opening or closing the browser",
     "documentation": "readme"
   },
   "built_against": {

@@ -6,7 +6,7 @@
     "area": "Transport",
     "version": "0.1.0-dev.4",
     "author": "kalifrn",
-    "description": "Keeps what you play on MIDI keyboards and the computer keyboard, and turns it into a note clip on demand, without having recorded. One Undo step per capture.",
+    "description": "Keeps what you play on MIDI keyboards and the computer keyboard, and turns it into a note clip on demand, without having recorded. One Undo step per capture",
     "documentation": "readme"
   },
   "built_against": {

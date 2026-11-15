@@ -6,7 +6,7 @@
     "area": "Commander",
     "version": "1.2.0-dev.5",
     "author": "shaboogen",
-    "description": "Give any action a short alias in Settings > Shortcuts, then type the alias in Commander to find and run the action.",
+    "description": "Give any action a short alias in Settings > Shortcuts, then type the alias in Commander to find and run the action",
     "documentation": "readme"
   },
   "built_against": {
