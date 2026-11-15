@@ -60,6 +60,9 @@ final class ListedDevices {
                     listed("LOW_CHAIN", "Low", "HIGH_CHAIN", "High")),
             device("f97699d1-3b8e-4363-8ede-4994e276cc97", // Multiband FX-3
                     listed("LOW_CHAIN", "Low", "MID_CHAIN", "Mid", "HIGH_CHAIN", "High")),
+            device("be4327d7-b7fd-5d2a-ba08-1c2fa08ba3cc", // Polarity Multiband FX-4
+                    listed("LOW_CHAIN", "Low", "LOW_MID_CHAIN", "Low Mid",
+                            "HIGH_MID_CHAIN", "High Mid", "HIGH_CHAIN", "High")),
             device("a6c9b12f-45a5-43e3-b100-b74ecf77367b", // Mid-Side Split
                     listed("MID_CHAIN", "Mid", "SIDE_CHAIN", "Side")),
             device("96196ffe-658f-46c4-84ba-153799be3657", // Stereo Split

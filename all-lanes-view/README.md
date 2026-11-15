@@ -7,6 +7,7 @@ Shows every lane of a multi-chain container at once: one row per lane, each with
 ## Which devices
 
 - FX: FX Layer, FX Selector, Multiband FX-2, Multiband FX-3, Mid-Side Split, Stereo Split and XY FX.
+- Custom FX: Polarity Multiband FX-4, loaded through Custom Nitro Registration.
 - Spectral: Freq Split, Loud Split, Transient Split and Harmonic Split.
 - Instruments: Instrument Layer, Instrument Selector and XY Instrument.
 - Note FX: Note FX Layer and Note FX Selector.
@@ -20,6 +21,7 @@ What a row is depends on the device:
 | FX, Instrument and Note FX Layer; FX, Instrument and Note FX Selector | One per layer or selector lane, with the lane's name and colour |
 | Multiband FX-2 | Low, High |
 | Multiband FX-3 | Low, Mid, High |
+| Polarity Multiband FX-4 | Low, Low Mid, High Mid, High |
 | Mid-Side Split | Mid, Side |
 | Stereo Split | Left, Right |
 | XY FX | The four corners A, B, C, D, then Post FX |
