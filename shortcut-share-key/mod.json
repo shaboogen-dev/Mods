@@ -4,9 +4,9 @@
     "id": "shortcut-share-key",
     "name": "Shortcuts: Share a Key",
     "area": "Shortcuts",
-    "version": "0.1.0-dev.1",
+    "version": "1.0.0",
     "author": "shaboogen",
-    "description": "Adds an Add button to Bitwig's shortcut dialog: give an action a key that other actions already use, and they keep it too",
+    "description": "Allows you to assign a keyboard shortcut that's already been used without removing its other assignments",
     "documentation": "readme"
   },
   "built_against": {

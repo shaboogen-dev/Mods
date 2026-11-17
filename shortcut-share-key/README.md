@@ -1,36 +1,51 @@
 # Shortcuts: Share a Key
 
-Bitwig lets one key do different things in different places. Out of the box, Left moves the focus in most of the window, moves the cursor in a text field and moves a selection in an editor. Bitwig's shortcut dialog doesn't let you set up keys like that yourself: when the key you press already belongs to another action, it offers only **Reassign**, which takes the key away from every other action, or **Cancel**.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: shortcut-share-key
+>
+> **Prerequisites**: None
 
-This mod adds a third button, **Add**. It gives the action the key and leaves the other actions with theirs.
+## What does this do?
 
-<!-- image: Bitwig's shortcut dialog with a key that's already taken, showing Reassign, Add and Cancel -->
+Out of the box, Bitwig will assign the same key to multiple actions. As an example, the Left key moves focus between panels, moves the cursor in a text field and moves a selection in an editor. If you try to assign the Left key to a different action, Bitwig will remove all previous assignments and assign the key exclusively to the new action.
 
-## Using it
+**Shortcuts: Share a Key** adds a third button to the key assignment dialog, **Add**, which allows you to assign a key to an action without losing any assignments that it has already.
 
-1. Open **Settings > Shortcuts** and click an action's shortcut field.
-2. Press a key that another action already uses. The dialog lists the actions that have it.
-3. Choose **Add**. The action gets the key, and the actions that had it keep it.
+![Bitwig's shortcut dialog with a key that's already taken, showing Reassign, Add and Cancel](images/shortcut-dialog.png)
 
-**Add** is there for every action, Bitwig's own and mods' alike, whenever the key you press is taken. With a free key the dialog is the same as without the mod. Controller shortcuts keep Bitwig's own two buttons.
+## How do you use it?
 
-To undo an Add, remove the key from that action's row in Settings > Shortcuts. The other actions keep theirs.
+1. Open **Settings > Shortcuts** and click the plus button to assign a key.
+2. Press a key that has already been assigned to another action. The dialog will show the other actions that are already using it.
+3. Click the **Add** button. The key will be assigned to the action without losing any previous assignments.
 
-## What a shared key does
+To remove a key, click the X button next to an assignment in **Settings > Shortcuts**. This will remove it without affecting any other key assignments.
 
-Bitwig runs one action per key press, never two. It starts at the part of the window that has the focus and works outwards, and the first action bound there that uses the key runs.
+## Things to note
 
-- **Two actions that apply in different places both work.** Each one runs where it applies. For example, a mod's action for the track list on Left runs while the track list has the focus, and Bitwig's Focus widget to the left runs everywhere else.
-- **Where both apply, Bitwig runs one of them,** and the other doesn't run there. Choose keys for actions that apply in different places.
+* In the case that a key is assigned to multiple actions, there are several rules that govern which action will be used.
 
-Keys follow the focus, not the mouse: click in a panel to give it the focus. Mods that are meant to share a key with Bitwig's own actions say so in their READMEs.
+  * Bitwig will only ever trigger a single action. It does not trigger multiple actions simultaneously, or cycle through multiple actions that may be relevant, it will pick the action that best fits the situation based on internal rules.
 
-## Turning it off
+  * Bitwig will choose actions based on the area of the application that is currently focused (focus is determined by the area / panel that is clicked, not just hovered over).
 
-Without the mod the dialog has Bitwig's two buttons again. Keys you've added stay as they are. They're saved in Bitwig's own shortcut settings, which already allow one key on several actions, and Bitwig keeps using them. Remove a key in Settings > Shortcuts as usual.
+    * If an action directly relates to the area that is focused, Bitwig will trigger that action.
 
-## Details
+    * If no action directly relates to the area that is focused, it will move to the panel the area belongs to and trigger an action based on that.
 
-- Mod ID: `shortcut-share-key`.
-- Built against Bitwig 6.1.4; prepares on Bitwig 6.0 to 6.1.4.
-- No options. Stores nothing of its own: Bitwig saves the shortcuts.
+    * This continues until an action is found and triggered.
+
+  * If more than one action still fits the scenario:
+
+    * An action limited to a specific situation will be chosen over a general one.
+
+    * Otherwise, Bitwig will choose the action that was registered last.
+
+      * This does not mean the action the key was assigned to last, but rather when the action was registered within Bitwig. As actions for mods are registered after Bitwig's stock actions, this would likely result in mod actions triggering over stock Bitwig actions.
+
+* Any actions assigned using the **Add** button stay after the mod is disabled as a key being assigned to multiple actions is naturally supported by Bitwig.
+
+* The **Add** button will only appear when attempting to assign a keyboard shortcut that has already been assigned. It does not appear for MIDI controller assignments.

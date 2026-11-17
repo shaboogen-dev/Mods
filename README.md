@@ -50,7 +50,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.2.0-dev.1 | |
 | Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.2.0-dev.1 | 1.3.0-dev.1 |
 | Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0-dev.4 | 1.2.0-dev.5 |
-| Shortcuts: Share a Key | `shortcut-share-key` | 0.1.0-dev.1 | |
+| Shortcuts: Share a Key | `shortcut-share-key` | 1.0.0 | |
 | Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 0.3.0-dev.6 | 0.3.0-dev.7 |
 | Parameter: Randomise Hovered Parameter | `single-parameter-randomizer` | 1.4.0 | |
 | Device: Randomise Remote Controls | `visible-remote-controls-randomizer` | 1.1.0 | |
