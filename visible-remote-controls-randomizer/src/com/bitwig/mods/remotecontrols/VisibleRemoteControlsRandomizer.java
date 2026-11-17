@@ -1,5 +1,6 @@
 package com.bitwig.mods.remotecontrols;
 
+import bitwig.obf.Czc; // something that names an undo step
 import bitwig.obf.aYg; // the Inspector panel
 import bitwig.obf.bDH; // a parameter
 import bitwig.obf.dAd; // an icon button
@@ -23,6 +24,7 @@ import com.bitwig.flt.document.core.master.device.iKw; // a Remote Controls slot
 import com.bitwig.flt.widget.core.device.FUR; // the Remote Controls page chooser
 import com.bitwig.flt.widget.core.device.hgq; // a device's panel in the device chain
 import com.bitwig.flt.widget.core.device.yPU; // what a page chooser is built from
+import com.bitwig.ramona.core.oDc; // a document object, which can run code as one undo step
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -235,7 +237,7 @@ public final class VisibleRemoteControlsRandomizer {
             }
 
             IdentityHashMap<Object, Boolean> seen = new IdentityHashMap<>();
-            int changed = 0;
+            List<z2X> targets = new ArrayList<>();
             for (Object p : pages) {
                 if (!(p instanceof FyM page)) continue;
                 int n = page.cfM(); // its number of slots
@@ -244,19 +246,39 @@ public final class VisibleRemoteControlsRandomizer {
                     if (!(slot instanceof iKw deviceSlot)) continue;
                     bDH parameter = deviceSlot.LaE(); // the slot's parameter
                     if (parameter == null || seen.put(parameter, Boolean.TRUE) != null) continue;
-                    if (randomizeOne(parameter)) changed++;
+                    if (parameter instanceof z2X settable && settable.d3()) targets.add(settable); // can be set now
                 }
             }
-            MOD.log("RANDOMIZED source=" + source + " pages=" + pages.size() + " parameters=" + changed);
+            if (!targets.isEmpty()) setAsOneUndoStep(device, targets);
+            MOD.log("RANDOMIZED source=" + source + " pages=" + pages.size() + " parameters=" + targets.size());
         } catch (Throwable t) {
             MOD.log("RANDOMIZE_ERROR source=" + source, t);
         }
     }
 
-    private static boolean randomizeOne(bDH parameter) {
-        if (!(parameter instanceof z2X settable) || !settable.d3()) return false; // can be set now
-        settable.FzB(ThreadLocalRandom.current().nextDouble()); // normalised value, 0 to 1
-        return true;
+    /**
+     * Sets every target to a random value as one undo step of its own.
+     *
+     * <p>A parameter's own setter opens an undo step that merges with the previous
+     * step when it starts within 800 ms of it (that's how a knob turn is one step),
+     * so presses in quick succession used to land in one step. The sets run inside
+     * an undo step that Bitwig opens without that merge rule: the setters' steps
+     * nest in it, and the next edit doesn't merge with it either. The device owns
+     * and names the step; a device that isn't a document object leaves that to the
+     * first parameter.
+     */
+    private static void setAsOneUndoStep(Object device, List<z2X> targets) {
+        Runnable set = () -> {
+            ThreadLocalRandom random = ThreadLocalRandom.current();
+            for (z2X target : targets) target.FzB(random.nextDouble()); // normalised value, 0 to 1
+        };
+        Object first = targets.get(0);
+        oDc owner = device instanceof oDc d ? d : first instanceof oDc p ? p : null;
+        if (owner != null) {
+            owner.cfM((Czc) owner, set); // one undo step
+        } else {
+            set.run();
+        }
     }
 
     private static List<Object> liveVisiblePages(Object device) {

@@ -4,9 +4,9 @@
     "id": "visible-remote-controls-randomizer",
     "name": "Device: Randomise Remote Controls",
     "area": "Device",
-    "version": "1.1.0-dev.2",
+    "version": "1.1.0",
     "author": "shaboogen",
-    "description": "Randomises the Remote Controls a device shows. Run it from the device's menus, a shortcut, the Commander, or Ctrl+click (Cmd+click on macOS) on the Remote Controls button.",
+    "description": "Randomises the Remote Controls a device shows",
     "documentation": "readme"
   },
   "built_against": {

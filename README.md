@@ -53,7 +53,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Shortcuts: Share a Key | `shortcut-share-key` | 0.1.0-dev.1 | |
 | Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 0.3.0-dev.6 | 0.3.0-dev.7 |
 | Parameter: Randomise Hovered Parameter | `single-parameter-randomizer` | 1.4.0 | |
-| Device: Randomise Remote Controls | `visible-remote-controls-randomizer` | 1.1.0-dev.1 | 1.1.0-dev.2 |
+| Device: Randomise Remote Controls | `visible-remote-controls-randomizer` | 1.1.0 | |
 | Browser: Add to Drum Machine | `add-to-drum-machine` | 0.1.0-dev.3 | 0.1.0-dev.4 |
 | Piano Roll: Pitch Expression Pointer | `pitch-expression-pointer` | 0.1.0-dev.8 | 0.1.0-dev.9 |
 | Interface: Smooth Scrolling | `look-and-feel` | 0.4.0-dev.1 | 0.4.0-dev.2 |
