@@ -23,7 +23,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Arranger: Add Automation Points | `add-automation-points` | 1.1.0-dev.2 | 1.1.0-dev.3 |
 | Framework: Themes | `bte-theme-loader` | 0.10.0-dev.1 | |
 | Commander: Run Order Crash Fix | `commander-dispatch-fix` | 1.2.0-dev.1 | 1.2.0-dev.2 |
-| Commander: Enter Selects First Result | `commander-first-result` | 1.1.0-dev.3 | 1.1.0-dev.4 |
+| Commander: Enter Selects First Result | `commander-first-result` | 1.1.0 | |
 | Arranger: Compact Expanded Groups | `compact-expanded-groups` | 1.4.0-dev.2 | 2.0.0-dev.1 |
 | Device: More Remote Control Pages | `configurable-remote-control-pages` | 1.1.0-dev.1 | 1.1.0-dev.2 |
 | Arranger: Cue-Based Arrangement Helper | `cue-based-arrangement-helper` | 1.1.0-dev.1 | 1.1.0-dev.2 |

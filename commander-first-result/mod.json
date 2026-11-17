@@ -4,9 +4,9 @@
     "id": "commander-first-result",
     "name": "Commander: Enter Selects First Result",
     "area": "Commander",
-    "version": "1.1.0-dev.4",
+    "version": "1.1.0",
     "author": "shaboogen",
-    "description": "After you type a search in Commander, Enter runs the first result when no result is selected, instead of closing Commander",
+    "description": "Enter runs the first result of a Commander search",
     "documentation": "readme"
   },
   "built_against": {

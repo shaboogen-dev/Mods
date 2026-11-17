@@ -1,30 +1,26 @@
 # Commander: Enter Selects First Result
 
-Makes Bitwig Commander's **Enter** key behave more directly after a search.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: commander-first-result
+>
+> **Prerequisites**: None
 
-When the Commander query is non-empty and no result row has been explicitly selected, pressing **Enter** uses Bitwig's own native selection routine to select the first visible result. Bitwig's normal Enter handler then executes that result.
+## What does this do?
 
-If a result was explicitly selected with the mouse or keyboard, that selection remains authoritative.
+In Bitwig, pressing Enter in the Commander only runs a result if you've selected one with the arrow keys or the mouse. Without manually selecting a result, the Commander closes without triggering an action.
 
-This mod is independent of Commander Aliases and is useful with stock Commander search on its own.
+**Commander: Enter Selects First Result** makes Enter run the first result when you've typed a search and haven't selected anything, making the Commander much faster to use.
 
-## Release
+## How do you use it?
 
-- Mod ID: `commander-first-result`
-- Version: `1.0.1`
-- Author: `shaboogen`
-- Built against: Bitwig Studio 6.1.3 / Windows x64
-- Loader baseline: BML v2 Preview 2 / map23 (with parser and case-sensitive compatibility-index fixes)
-- Same-build acceptance: Bitwig Studio 6.1.3 / Windows x64
+Open the Commander, type a search and press Enter. The first result in the list runs and the Commander closes.
 
-## Debug Mode support traces
+## Things to note
 
-The release keeps a narrow support-oriented trace surface for diagnosing bugs under BML Debug Mode. It covers the Commander query/filter hook, the Enter listener hook, both helper bridge methods, and Bitwig's native `commander.select_next_result` operation.
-
-Normal non-Debug launches do not enable tracing.
-
-**Privacy note:** Debug traces may contain text entered into Commander. Review trace contents before sharing them publicly.
-
-## Compatibility
-
-This release is built against and accepted on Bitwig Studio 6.1.3 / Windows x64. Cross-build target mappings exist in the BML v2 compatibility data, but runtime acceptance on other Bitwig builds should be treated separately until tested.
+* If you select a result yourself with the arrow keys or the mouse, Enter runs that result instead of the first one.
+* If you press Enter without typing anything, the Commander closes as it normally would.
+* The first result is the top row the Commander shows for your search
+* This works with **Commander: Assign Aliases to Actions**. If an alias puts an action at the top of the results, Enter runs it.
