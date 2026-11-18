@@ -48,7 +48,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Framework: Settings | `preferences-composition-framework` | 1.0.0 | |
 | Browser: Enable Project File Filter | `projects-in-browser` | 1.2.0-dev.4 | 1.2.0-dev.5 |
 | Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.2.0-dev.1 | |
-| Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.2.0-dev.1 | 1.3.0-dev.1 |
+| Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.3.0 | |
 | Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0-dev.4 | 1.2.0-dev.5 |
 | Shortcuts: Share a Key | `shortcut-share-key` | 1.0.0 | |
 | Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 0.3.0-dev.6 | 0.3.0-dev.7 |
@@ -84,7 +84,6 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Panel: Scale Each Panel | `panel-scale` | 0.1.0-dev.1 | |
 | Arranger: Paste Time and Cut Time in Menus | `paste-cut-time-menus` | | 0.1.0-dev.1 |
 | Notifications: Pop-ups in the Centre | `popups-in-notification-centre` | 0.1.0-dev.1 | |
-| Device: Right-Click Page Buttons to Edit Remote Controls | `remote-control-page-buttons-edit` | | 0.1.0-dev.1 |
 | Device: Toggle Selected Devices' Windows Together | `selected-device-windows` | | 0.1.0-dev.1 |
 | Arranger: Track Headers on the Right | `track-headers-right` | | 0.1.0-dev.1 |
 | Browser: Hide Parts | `browser-hide-parts` | 0.1.0-dev.1 | |
