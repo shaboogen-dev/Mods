@@ -4,9 +4,9 @@
     "id": "focus-side-browser-search",
     "name": "Browser (side): Search Bar Shortcut",
     "area": "Browser (side)",
-    "version": "0.3.0-dev.2",
+    "version": "1.0.0",
     "author": "shaboogen",
-    "description": "Adds an action you can give a shortcut: it puts the cursor in the Side Browser's search field from anywhere in the window, without opening or closing the browser",
+    "description": "Adds a shortcut to access the side browser's search field from anywhere in Bitwig",
     "documentation": "readme"
   },
   "built_against": {

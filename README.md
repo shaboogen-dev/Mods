@@ -30,7 +30,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Framework: Nitro Devices | `custom-device-registrar` | 1.3.0-dev.3 | |
 | Device: Keep Plug-in Windows Closed on Insert | `device-window-helper` | 1.1.0-dev.3 | 1.2.0-dev.1 |
 | Track: Exclusive Arm | `exclusive-arm` | 0.1.0-dev.4 | 0.1.0-dev.5 |
-| Browser (side): Search Bar Shortcut | `focus-side-browser-search` | 0.3.0-dev.1 | 0.3.0-dev.2 |
+| Browser (side): Search Bar Shortcut | `focus-side-browser-search` | 1.0.0 | |
 | Framework: Browser | `browser-framework` | 0.3.0-dev.1 | |
 | Framework: Inspector | `inspector-composition-framework` | 0.3.0-dev.2 | |
 | Framework: Piano Roll | `piano-roll-framework` | 0.2.0-dev.1 | |

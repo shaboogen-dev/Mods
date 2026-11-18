@@ -1,14 +1,25 @@
 # Browser (side): Search Bar Shortcut
 
-- Adds one action, **Focus Side Browser Search Bar**, listed under **Browser**, that you can assign a shortcut to in Settings > Shortcuts or run from the Commander.
-- Running it focuses the search field of the docked Side Browser in the window you are in.
-- When a browser view with its own content shows there (chosen in Settings > Mods > Browser Configuration > Browser view, such as Browser: Folders), it focuses that view's own search field instead, if the view has one. This needs **Framework: Browser Configuration** 0.2.0-dev.2 or later; without it the shortcut works as above.
-- It does not change the query or open, close or toggle the browser.
-- When that window has no docked Side Browser showing, it does nothing.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: focus-side-browser-search
+>
+> **Prerequisites**: **Framework: Actions and Menus** 0.8.0-dev.1 or later.
 
-## Requirements
+## What does this do?
 
-- Bitwig Studio 6.1.4 (Windows x64).
-- BML loader 0.34.0-dev.7 or later.
-- **Framework: Actions and Menus** 0.5.0 or later, which registers the action.
-- Optional: **Framework: Browser Configuration** 0.2.0-dev.2 or later, for browser views' own search fields. It isn't required: the mod looks for it when the shortcut runs.
+Accessing the search bar in the side browser currently relies on actions that feel unpredictable. The current *Focus Browser Search Field* action only works when the browser already has focus, which you can use *Focus/toggle Browser Panel* to get but depending on what is selected will either focus the browser or toggle the browser's visibility.
+
+**Browser (side): Search Bar Shortcut** adds a simple, predictable action that puts the cursor in the Side Browser's search field from anywhere in Bitwig. This allows you to more quickly search for whatever you need and to not have to consider what is focused or whether clicking the shortcut one too many times will close the browser accidentally.
+
+## How do you use it?
+
+This mod adds an action named *Focus Side Browser Search Bar*. Assign a shortcut to it to use this action.
+
+## Things to note
+
+* This action will not close the Side Browser when it is visible.
+* If the Side Browser is hidden, the action does nothing.
+* **Framework: Browser** gives modders a chance to declare a search bar when creating a different view. Assuming they've taken advantage of this, this shortcut will put the cursor in that view's search field.
