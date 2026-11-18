@@ -75,7 +75,6 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Device: All Lanes View | `all-lanes-view` | 0.1.0-dev.9 | 0.1.0-dev.10 |
 | Automation: Quantize Points | `quantize-automation-points` | 0.1.0-dev.2 | 0.1.0-dev.3 |
 | Device: Selected Tracks View | `selected-tracks-view` | 0.1.0-dev.2 | 0.1.0-dev.3 |
-| Piano Roll: Scale Fold (by Polarity) | `scale-fold` | 0.1.0-dev.4 | |
 | Piano Roll: Step Sequencer (by Polarity) | `step-sequencer` | 0.1.0-dev.5 | |
 | Arranger: Default Track Height | `default-track-height` | | 0.1.0-dev.1 |
 | Device: Toggle Enabled Shortcut | `device-toggle-enabled-key` | | 0.1.0-dev.1 |
