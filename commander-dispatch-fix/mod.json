@@ -4,9 +4,9 @@
     "id": "commander-dispatch-fix",
     "name": "Commander: Run Order Crash Fix",
     "area": "Commander",
-    "version": "1.2.0-dev.2",
+    "version": "1.2.0",
     "author": "shaboogen",
-    "description": "Commander runs the chosen action before it closes. This stops Bitwig crashing when Cut Time is run from Commander",
+    "description": "Prevents a crash when certain actions are run from the Commander",
     "documentation": "readme"
   },
   "built_against": {

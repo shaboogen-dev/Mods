@@ -1,9 +1,19 @@
 # Commander: Run Order Crash Fix
 
-For Bitwig 6.1.4 (Windows x64).
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: commander-dispatch-fix
+>
+> **Prerequisites**: None
 
-When you pick an action in Commander, Bitwig closes Commander first and then runs the action. For some actions, that order crashes Bitwig: run **Cut Time** from Commander with a time selection in the arranger, and Bitwig crashes, usually on the second run.
+## What does this do?
 
-With this mod, Commander runs the action first and closes afterwards. Every action you start from Commander gets this order. Commander still closes if the action fails.
+Bitwig currently contains a bug that causes a crash when using the Commander. This most commonly occurs when attempting to use an action like *Cut Time*. 
 
-Nothing to set up: install it and use Commander as usual.
+**Commander: Run Order Crash Fix** fixes this bug and prevents the crash.
+
+## How do you use it?
+
+No setup is required, just use Commander as you ordinarily would.
