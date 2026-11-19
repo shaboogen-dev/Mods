@@ -17,7 +17,9 @@ import bitwig.obf.dtX; // a modal popup with a primary button and Cancel
 import bitwig.obf.dut; // a text label
 import bitwig.obf.dve; // a widget
 import bitwig.obf.dyC; // a focusable widget
+import bitwig.obf.ecM; // a text buffer's change listener
 import bitwig.obf.ecV; // a one-line text editor
+import bitwig.obf.ecg; // a text editor's buffer
 import bitwig.obf.ecl; // a message label
 import bitwig.obf.eek; // a container style
 import bitwig.obf.ekE; // an icon
@@ -141,8 +143,10 @@ public final class CommanderAliases {
     private static void openAliasModal(String actionId, String actionName, dWb group, dAa addButton, NativeAliasResources resources) {
         try {
             dtX modal = dtX.ycx();
-            ecV editor = ecV.bB();
+            ecg buffer = new ecg(20);     // the editor's text, as ecV.bB() makes it
+            ecV editor = ecV.hUR(buffer); // a one-line editor on that buffer
             ecl validationMessage = createAliasValidationMessage();
+            buffer.cfM(new LiveAliasCheck(actionId, buffer, validationMessage)); // add a change listener
             dWb body = dWb.qFI(); // a vertical group
             body.HL(editor);            // add child
             body.HL(validationMessage); // add child
@@ -188,6 +192,50 @@ public final class CommanderAliases {
             log("ALIAS_ADDED action_id=" + actionId + " alias=" + quote(alias) + " persisted=" + quote(aliases.path().toString()));
         } catch (Throwable t) {
             log("ALIAS_ADD_ERROR action_id=" + actionId + " error=" + rootMessage(t));
+        }
+    }
+
+    /** Checks the alias as it's typed, so a duplicate shows before Add is pressed. */
+    private static final class LiveAliasCheck implements ecM {
+        private final String actionId;
+        private final ecg buffer;
+        private final ecl message;
+
+        LiveAliasCheck(String actionId, ecg buffer, ecl message) {
+            this.actionId = actionId;
+            this.buffer = buffer;
+            this.message = message;
+        }
+
+        @Override
+        public void cfM(int offset, int length) { // text inserted
+            check();
+        }
+
+        @Override
+        public void MRY(int offset, int length) { // text removed
+            check();
+        }
+
+        @Override
+        public void Hnt(int offset, int length) { // text replaced
+            check();
+        }
+
+        private void check() {
+            try {
+                String candidate = buffer.UNj(); // the whole text
+                String reason = null;
+                if (!candidate.trim().isEmpty()) { // an empty field says nothing until Add
+                    String problem = aliases().problemWith(actionId, candidate);
+                    if (problem != null) {
+                        reason = aliasValidationText(actionId, candidate, problem);
+                    }
+                }
+                setAliasValidationMessage(message, reason, reason != null);
+            } catch (Throwable t) {
+                log("ALIAS_LIVE_CHECK_ERROR action_id=" + actionId + " error=" + rootMessage(t));
+            }
         }
     }
 
@@ -517,27 +565,12 @@ public final class CommanderAliases {
 
         /** Validates, stores and persists; returns the trimmed alias. Validation failures throw IllegalArgumentException. */
         synchronized String addAlias(String actionId, String candidate) throws IOException {
-            if (actionId == null || actionId.isBlank()) {
-                throw new IllegalArgumentException("Action has no stable ID");
+            String problem = problemWith(actionId, candidate);
+            if (problem != null) {
+                throw new IllegalArgumentException(problem);
             }
-            String alias = candidate == null ? "" : candidate.trim();
-            if (alias.isEmpty()) {
-                throw new IllegalArgumentException("Enter an alias");
-            }
-            if (alias.indexOf('=') >= 0 || alias.indexOf('\r') >= 0 || alias.indexOf('\n') >= 0) {
-                throw new IllegalArgumentException("Alias contains an unsupported character");
-            }
-            if (alias.startsWith("#") || alias.startsWith(";")) {
-                throw new IllegalArgumentException("Alias cannot begin with # or ;");
-            }
-            if (aliasByAction.containsKey(actionId)) {
-                throw new IllegalArgumentException("This action already has an alias");
-            }
+            String alias = candidate.trim();
             String key = alias.toLowerCase(Locale.ROOT);
-            String owner = actionByAliasKey.get(key);
-            if (owner != null) {
-                throw new IllegalArgumentException("Alias is already assigned");
-            }
             aliasByAction.put(actionId, alias);
             actionByAliasKey.put(key, actionId);
             try {
@@ -548,6 +581,30 @@ public final class CommanderAliases {
                 throw e;
             }
             return alias;
+        }
+
+        /** Why {@code candidate} can't be this action's alias, or null when it can. */
+        synchronized String problemWith(String actionId, String candidate) {
+            if (actionId == null || actionId.isBlank()) {
+                return "Action has no stable ID";
+            }
+            String alias = candidate == null ? "" : candidate.trim();
+            if (alias.isEmpty()) {
+                return "Enter an alias";
+            }
+            if (alias.indexOf('=') >= 0 || alias.indexOf('\r') >= 0 || alias.indexOf('\n') >= 0) {
+                return "Alias contains an unsupported character";
+            }
+            if (alias.startsWith("#") || alias.startsWith(";")) {
+                return "Alias cannot begin with # or ;";
+            }
+            if (aliasByAction.containsKey(actionId)) {
+                return "This action already has an alias";
+            }
+            if (actionByAliasKey.containsKey(alias.toLowerCase(Locale.ROOT))) {
+                return "Alias is already assigned";
+            }
+            return null;
         }
 
         synchronized String actionForAlias(String alias) {

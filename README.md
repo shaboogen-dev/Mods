@@ -49,7 +49,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Browser: Enable Project File Filter | `projects-in-browser` | 1.2.0-dev.4 | 1.2.0-dev.5 |
 | Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.2.0-dev.1 | |
 | Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.3.0 | |
-| Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0-dev.4 | 1.2.0-dev.5 |
+| Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0 | |
 | Shortcuts: Share a Key | `shortcut-share-key` | 1.0.0 | |
 | Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 0.3.0-dev.6 | 0.3.0-dev.7 |
 | Parameter: Randomise Hovered Parameter | `single-parameter-randomizer` | 1.4.0 | |
