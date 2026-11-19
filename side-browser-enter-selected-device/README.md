@@ -1,23 +1,41 @@
 # Browser (side): Enter Inserts Selected Result
 
-Makes Enter insert results from the docked Side Browser.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: side-browser-enter-selected-device
+>
+> **Prerequisites**: None
 
-- **In the result list:** Enter (Bitwig's Activate and Launch actions) inserts the selected result.
-- **In the search field:** type a name and press Enter once: the first result is inserted, on its own. Bitwig's own Enter still runs as well (it commits the search text and moves focus to the results).
-- Only Enter pressed in the search field counts: clicking away from the field inserts nothing.
-- The first result is the first visible one that refers to a resource (such as a file). That is not a device-only filter: the browser decides what it can insert where.
-- **What goes in:** Enter does what dropping the result on the track does, with no keys held, and goes by what the track holds, not by where a drop would land.
-  - An instrument, or a sample on an instrument or hybrid track, replaces the track's instrument if it has one; a preset for the instrument already there loads into it.
-  - A note effect goes before the instrument, and an audio effect at the end of the chain.
-  - A sample on an audio track gives a Convolution, at the end of the chain. An impulse always does.
-  - Several selected samples, when the row Enter acts on is one of them, go in together as one drop. On an instrument or hybrid track they make one Sampler holding them all as a round-robin multisample; on an audio track each gives a Convolution. A selection with an impulse or anything other than samples inserts the row Enter acts on, alone.
-  - A wavetable gives a Polymer.
-  - A modulator goes on the track's selected device. With no selected device, or one that takes no modulators, nothing happens.
-- **What a drop refuses** keeps Bitwig's own Enter: a project opens, and modules, clips, curves and templates do nothing.
-- Undo removes what Enter inserted in one step.
-- Only the docked Side Browser is affected.
+## What does this do?
 
-## Requirements
+Using the side browser, loading a device, a sample or any other file type that it supports requires you to drag the item to the track. This is unlike the popup browser that allows you to use the Enter key.
 
-- Bitwig Studio 6.1.4 (Windows x64).
-- BML loader 0.34.0-dev.5 or later.
+**Browser (side): Enter Inserts Selected Result** makes Enter insert a result exactly as if you had dragged it onto the selected track, allowing you to better take advantage of the search bar and add devices, presets and samples without leaving the keyboard.
+
+## How do you use it?
+
+* **From the search field:** type a search and press Enter. The first result is inserted.
+* **From the results:** pick a result with the arrow keys and press Enter. The selected result is inserted.
+
+## Things to note
+
+* As this mod mirrors the drag functionality, there are several different outcomes depending on the scenario:
+  * Hitting Enter on an Instrument or a Preset file will load as the first device in most cases.
+    * If an instrument is already on the track, hitting Enter will replace it.
+    * If a Note FX device is already on the track, the Instrument will be placed after it.
+  * Hitting Enter on a Note FX device will place it first in the chain.
+    * If a Note FX device already exists, the Note FX device will be placed after it.
+  * Hitting Enter on a Sample file has a different outcome depending on the type of track that is selected.
+    * On an instrument track, the file will be loaded in a **Sampler**.
+    * On an Audio or FX track, the file will be loaded in a **Convolution** device.
+      * This only occurs on more recent versions of Bitwig.
+  * Hitting Enter if multiple Sample files are selected has a different outcome depending on the type of track that is selected.
+    * On an instrument track, a single **Sampler** device with all samples loaded simultaneously will be instantiated, conforming to the same rules as instantiating an Instrument.
+    * On an Audio or FX track, each sample will load in its own **Convolution** device.
+  * Hitting Enter on a Wavetable file opens a Polymer device with a Wavetable module selected as its oscillator type.
+  * Hitting Enter on a Modulator file loads it onto a selected device.
+    * If no device is selected or the device selected cannot accept modulators, nothing happens.
+* This only affects the Side Browser, not the pop-up browser.
+* This was built with the mod **Browser (side): Search Bar Shortcut** in mind as you can press a shortcut to immediately focus the search bar, type in what you want then press **Enter** to load a device straight away.

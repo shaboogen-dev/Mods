@@ -51,7 +51,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Device: Always Show Remote Control Page Buttons | `remote-control-page-buttons-always-visible` | 1.3.0 | |
 | Commander: Assign Aliases to Actions | `shortcut-aliases` | 1.2.0 | |
 | Shortcuts: Share a Key | `shortcut-share-key` | 1.0.0 | |
-| Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 0.3.0-dev.6 | 0.3.0-dev.7 |
+| Browser (side): Enter Inserts Selected Result | `side-browser-enter-selected-device` | 1.0.0 | |
 | Parameter: Randomise Hovered Parameter | `single-parameter-randomizer` | 1.4.0 | |
 | Device: Randomise Remote Controls | `visible-remote-controls-randomizer` | 1.1.0 | |
 | Browser: Add to Drum Machine | `add-to-drum-machine` | 0.1.0-dev.3 | 0.1.0-dev.4 |

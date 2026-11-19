@@ -4,9 +4,9 @@
     "id": "side-browser-enter-selected-device",
     "name": "Browser (side): Enter Inserts Selected Result",
     "area": "Browser (side)",
-    "version": "0.3.0-dev.7",
+    "version": "1.0.0",
     "author": "shaboogen",
-    "description": "Enter in the Side Browser inserts a result as if you dropped it on the track: the selected result from the list, or the first result from the search field",
+    "description": "Allows you to use Enter to load results from the side browser",
     "documentation": "readme"
   },
   "built_against": {
