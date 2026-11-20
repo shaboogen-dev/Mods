@@ -19,7 +19,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 
 | Mod | ID | Accepted | Active dev |
 |---|---|---|---|
-| Framework: Actions and Menus | `action-menu-composition-framework` | 0.8.0-dev.1 | |
+| Framework: Actions and Menus | `action-menu-composition-framework` | 0.9.0-dev.4 | |
 | Arranger: Add Automation Points | `add-automation-points` | 1.1.0-dev.2 | 1.1.0-dev.3 |
 | Framework: Themes | `bte-theme-loader` | 0.10.0-dev.1 | |
 | Commander: Run Order Crash Fix | `commander-dispatch-fix` | 1.2.0 | |
@@ -29,7 +29,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Arranger: Cue-Based Arrangement Helper | `cue-based-arrangement-helper` | 1.1.0-dev.1 | 1.1.0-dev.2 |
 | Framework: Nitro Devices | `custom-device-registrar` | 1.3.0-dev.3 | |
 | Device: Keep Plug-in Windows Closed on Insert | `device-window-helper` | 1.1.0-dev.3 | 1.2.0-dev.1 |
-| Track: Exclusive Arm | `exclusive-arm` | 0.1.0-dev.4 | 0.1.0-dev.5 |
+| Track: Exclusive Arm | `exclusive-arm` | 1.0.0 | |
 | Browser (side): Search Bar Shortcut | `focus-side-browser-search` | 1.0.0 | |
 | Framework: Browser | `browser-framework` | 0.3.0-dev.1 | |
 | Framework: Inspector | `inspector-composition-framework` | 0.3.0-dev.2 | |

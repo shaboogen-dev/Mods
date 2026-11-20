@@ -1,22 +1,33 @@
 # Track: Exclusive Arm
 
-When you arm a track for recording, every other track is disarmed, so only one track is armed at a time. It works however the track is armed: its arm button, Bitwig's arm actions and their shortcuts, or a controller. Loading a project is left as it is.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: exclusive-arm
+>
+> **Prerequisites**: **Framework: Settings** 1.0.0 or later, and **Framework: Actions and Menus** 0.9.0-dev.4 or later.
 
-Undo: arming a track is not an Undo step in Bitwig, with or without this mod. Undo after any kind of arm (click or Shift-click) undoes your previous edit, not the arm.
+## What does this do?
 
-## Setting
+This mod comes off the back of a request from *Lokan* to create "exclusive solo but with the round and black button that turns red".
 
-Settings > Mods > Exclusive Arm > **Disarm other tracks when arming** (on by default). Turn it off and arming works as in Bitwig without the mod.
+**Track: Exclusive Arm** adds an **Exclusive Arm** setting that mirrors the functionality of **Exclusive Solo** for the **Record Arm** button.
 
-The action **Toggle Exclusive Arm** (Commander, or give it a shortcut in Settings > Shortcuts) turns the setting on and off and shows the new state in Bitwig's notification bar.
+## How do you use it?
 
-## Shift-click
+* To turn it on, go to **Settings > Mods > Arm > Exclusive Arm**. This is on by default when the mod is installed.
+* While **Exclusive Arm** is off, arming tracks works exactly as it did before with one exception:
+  * **Shift-Click** an arm button to exclusively arm that track.
+* While **Exclusive Arm** is on:
+  * The default arm behaviour when clicking a track, or using any other mechanism to activate **Record Arm** is to exclusively arm the selected track.
+  * **Ctrl-clicking** (Cmd-clicking on Mac) an arm button additionally arms the track.
+    * This can also be used to deactivate **Record Arm** on a track.
+  * **Shift-click** follows the same functionality as **Ctrl-click**.
 
-Shift-click a track's arm button, in the arranger's track header or in the mixer, to arm that track and disarm every other track, as Shift-click on a solo button solos one track. It works whether the setting is on or off. Shift-clicking a track that is already armed keeps it armed and disarms the others; to disarm it, click it without Shift. A track that can't be armed (no recording input) is left as it is, and so are the others.
+## Things to note
 
-## Needs
-
-- Framework: Settings (`preferences-composition-framework`)
-- Framework: Actions and Menus (`action-menu-composition-framework`)
-
-Install both next to this mod.
+* A track that can't be armed (one with no recording input) is left as it is, and so are the other tracks.
+* Arming several selected tracks with one click arms them all together.
+* Opening a project doesn't change it. Tracks that were saved armed stay armed.
+* Arming isn't an Undo step in Bitwig, with or without this mod, so Undo after arming undoes your previous edit.
