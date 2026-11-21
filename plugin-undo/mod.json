@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "mod": {
     "id": "plugin-undo",
-    "name": "Device: Optional Plug-in Undo Steps",
+    "name": "Device: VST / CLAP Plugin Undo Toggle",
     "area": "Device",
-    "version": "1.1.0-dev.3",
+    "version": "1.1.0",
     "author": "shaboogen",
-    "description": "Changes made inside VST and CLAP plug-ins no longer fill Bitwig's Undo history. Turn them back on in Settings > Mods",
+    "description": "Adds a setting to turn off undo on VST / CLAP plugins",
     "documentation": "readme"
   },
   "built_against": {

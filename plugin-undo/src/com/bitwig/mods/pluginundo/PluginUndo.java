@@ -1,6 +1,8 @@
 package com.bitwig.mods.pluginundo;
 
+import java.util.Map;
 import java.util.Objects;
+import java.util.WeakHashMap;
 
 import bitwig.obf.aWv; // a plug-in's undo state
 import bitwig.obf.dfI; // the document's undo recorder
@@ -13,7 +15,7 @@ import com.bitwig.flt.document.core.master.device.jLS; // a plug-in's undo state
 import com.bitwig.ramona.core.IOJ; // a change recorded with an undo step
 
 /**
- * Device: Optional Plug-in Undo Steps.
+ * VST / CLAP plug-in undo, switchable.
  *
  * On: Bitwig's behaviour, every change a plug-in reports becomes a step in the document's Undo
  * history. Off: the device still keeps its plug-in undo state up to date, but no recording or
@@ -34,7 +36,7 @@ public final class PluginUndo {
     private PluginUndo() {
     }
 
-    /** The setting "Plug-in changes make Undo steps" (default off). */
+    /** Plug-in changes make Undo steps (default off; Settings shows it inverted as "Disable VST / CLAP plugin undo"). */
     static boolean enabled() {
         return enabled;
     }
@@ -48,25 +50,49 @@ public final class PluginUndo {
         return STORE.getBoolean(KEY, false);
     }
 
+    /**
+     * Recording scopes this mod let begin, per recorder. The recorder counts begins and ends, so
+     * every begin it was given must get exactly one end. An end is passed on only while this
+     * count is above zero, never because of the setting: turning the setting on or off while a
+     * plug-in's scope is open would otherwise leave the count one too high or one too low, and
+     * the recorder would stop recording for the rest of the session.
+     */
+    private static final Map<dfI, int[]> OPEN = new WeakHashMap<>();
+
     /** The plug-in's recording scope begins. */
     @Hook(target = HSu.class, method = "kIh", at = At.REPLACE_CALL, id = "recorder-begin",
           callOwner = dfI.class, call = "qoU", occurrence = 1)
     public static void recorderBegin(dfI recorder) {
-        if (enabled && recorder != null) recorder.qoU(); // begin recording
+        if (!enabled || recorder == null) return;
+        synchronized (OPEN) {
+            OPEN.computeIfAbsent(recorder, r -> new int[1])[0]++;
+        }
+        recorder.qoU(); // begin recording
     }
 
     /** The plug-in's recording scope ends. */
     @Hook(target = HSu.class, method = "MYI", at = At.REPLACE_CALL, id = "recorder-end",
           callOwner = dfI.class, call = "LaE", occurrence = 1)
     public static void recorderEnd(dfI recorder) {
-        if (enabled && recorder != null) recorder.LaE(); // end recording
+        endOpened(recorder);
     }
 
     /** The commit's own end of the recording scope. */
     @Hook(target = HSu.class, method = "cfM(Ljava/lang/String;II)V", at = At.REPLACE_CALL, id = "commit-recorder-end",
           callOwner = dfI.class, call = "LaE", occurrence = 1)
     public static void commitRecorderEnd(dfI recorder) {
-        if (enabled && recorder != null) recorder.LaE(); // end recording
+        endOpened(recorder);
+    }
+
+    /** Ends a recording scope if this mod let one begin on this recorder. */
+    private static void endOpened(dfI recorder) {
+        if (recorder == null) return;
+        synchronized (OPEN) {
+            int[] open = OPEN.get(recorder);
+            if (open == null || open[0] == 0) return;
+            if (--open[0] == 0) OPEN.remove(recorder);
+        }
+        recorder.LaE(); // end recording
     }
 
     /** The commit begins an Undo step named after the plug-in's change. */

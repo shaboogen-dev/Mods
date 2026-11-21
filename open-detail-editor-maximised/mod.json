@@ -4,9 +4,9 @@
     "id": "open-detail-editor-maximised",
     "name": "Detail Editor: Open Maximised",
     "area": "Detail Editor",
-    "version": "0.1.0-dev.1",
+    "version": "1.0.0",
     "author": "shaboogen",
-    "description": "Opening a clip in the Detail Editor shows the Detail Editor as the main content, as Bitwig's Toggle maximized editing mode does",
+    "description": "Adds a setting to have clips open maximised as the default behaviour",
     "documentation": "readme"
   },
   "built_against": {
@@ -14,6 +14,17 @@
     "platform": "windows",
     "architecture": "x64"
   },
+  "requires": [
+    { "id": "preferences-composition-framework", "min_version": "1.0.0" }
+  ],
+  "registrations": [
+    {
+      "id": "preferences",
+      "consumer": "preferences-composition-framework",
+      "descriptor": "preferences.properties",
+      "jar": "helper.jar"
+    }
+  ],
   "resources": {
     "readme": { "kind": "file", "path": "README.md", "media_type": "text/markdown" }
   },

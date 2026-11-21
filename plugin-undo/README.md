@@ -1,10 +1,26 @@
-# Device: Optional Plug-in Undo Steps
+# Device: VST / CLAP Plugin Undo Toggle
 
-For Bitwig 6.1.4 (Windows x64). Needs **Framework: Settings**.
+> **Built against**: Bitwig 6.1.4 (Windows x64)
+>
+> **Will map to**: All Bitwig versions Patchbay supports on Windows, Mac and Linux
+>
+> **Mod ID**: plugin-undo
+>
+> **Prerequisites**: **Framework: Settings** 1.0.0 or later.
 
-Bitwig turns every change a VST or CLAP plug-in reports into an Undo step. **Settings > Mods > Optional Plug-in Undo Steps > Plug-in changes make Undo steps** switches this:
+## What does this do?
 
-- **Off** (default): plug-in changes make no Undo steps, so Undo goes straight back through your own edits. Everything else Bitwig undoes is unchanged.
-- **On**: Bitwig's behaviour.
+A lot of users have issues with Bitwig's implementation of adding undo for VST and CLAP plugins.
 
-The setting applies at once and is kept across restarts.
+**Device: VST / CLAP Plugin Undo Toggle** adds a setting that allows you to turn this system off entirely.
+
+## How do you use it?
+
+* The setting is in **Settings > Mods > VST / CLAP Plugin Undo > Disable VST / CLAP plugin undo**.
+* While it's ticked (the default when the mod is installed), changes made inside a VST / CLAP plugin will not be added to the Undo history.
+* While it's unticked, Bitwig acts as it does normally.
+
+## Things to note
+
+* Only changes to VST and CLAP plug-ins are affected. Changes to Bitwig's own devices and modulators are still Undo steps.
+* Plugin changes already added to the Undo history when you tick the setting stay there.

@@ -42,9 +42,9 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Panel: Streamlined Views | `panel-sides` | 0.4.0-dev.9 | 0.5.0-dev.1 |
 | Panel: Mix Map | `mix-map` | 0.2.0-dev.2 | |
 | Panel: Shared Tool Mode | `shared-tool-mode` | 0.1.0-dev.4 | 0.1.0-dev.5 |
-| Clips: Edit New Clips Reliably | `edit-clips-reliably` | 0.1.0-dev.3 | 0.1.0-dev.4 |
+| Clips: Edit New Clips Reliably | `edit-clips-reliably` | 1.0.0 | |
 | Arranger: Paste Time Makes Room | `paste-time` | 1.1.0-dev.12 | 1.1.0-dev.13 |
-| Device: Optional Plug-in Undo Steps | `plugin-undo` | 1.1.0-dev.2 | 1.1.0-dev.3 |
+| Device: VST / CLAP Plugin Undo Toggle | `plugin-undo` | 1.1.0 | |
 | Framework: Settings | `preferences-composition-framework` | 1.0.0 | |
 | Browser: Enable Project File Filter | `projects-in-browser` | 1.2.0-dev.4 | 1.2.0-dev.5 |
 | Browser: Pre-5.0 Style Side Browser | `pre-5-style-side-browser` | 0.2.0-dev.1 | |
@@ -87,7 +87,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Browser: Hide Parts | `browser-hide-parts` | 0.1.0-dev.1 | |
 | Panel: Choose Sides | `choose-panel-sides` | | 0.1.0-dev.1 |
 | Piano Roll: Make Legato (Later → Earlier) | `legato-later-to-earlier` | | 0.1.0-dev.2 |
-| Detail Editor: Open Maximised | `open-detail-editor-maximised` | | 0.1.0-dev.1 |
+| Detail Editor: Open Maximised | `open-detail-editor-maximised` | 1.0.0 | |
 | Panel: Separate Browser Panels | `separate-browser-panels` | | 0.1.0-dev.1 |
 | Piano Roll: Split Notes at Grid | `split-notes-at-grid` | | 0.1.0-dev.1 |
 | Grid: Straight and Triplet Only | `straight-triplet-grid` | | 0.1.0-dev.1 |

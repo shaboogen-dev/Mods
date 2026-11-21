@@ -18,8 +18,8 @@ import java.util.List;
  * With Bitwig's "Automatically open new clips in Detail Editor Panel" on, Bitwig takes the
  * Detail Editor of the view that is showing, gives it the new clip (it scrolls to the clip once
  * the editor's model has caught up), and only then opens the Detail Editor. When opening switches
- * to the Edit view (Bitwig's profiles that edit in the Edit view, or Streamlined Views' "open
- * maximised"), the Edit view has a Detail Editor of its own: the scroll goes to the one that was
+ * to the Edit view (Bitwig's profiles that edit in the Edit view, or the mod Detail Editor: Open
+ * Maximised), the Edit view has a Detail Editor of its own: the scroll goes to the one that was
  * hidden, and the one that opens stays where it was, often with no clip in sight. Bitwig's
  * double-click on a clip already opens first when it has no editor; this mod does the same for
  * new clips: open the Detail Editor, then give the new clip to the editor that is now showing.
@@ -69,8 +69,8 @@ public final class EditClipsReliably {
     }
 
     /**
-     * Opens the Detail Editor as Bitwig does for a clip (aBW.jHi(), which Streamlined Views may
-     * turn into the Edit view) and returns the Detail Editor showing now, or the one Bitwig chose
+     * Opens the Detail Editor as Bitwig does for a clip (aBW.jHi(), which Detail Editor: Open
+     * Maximised may turn into the Edit view) and returns the Detail Editor showing now, or the one Bitwig chose
      * when the view has none.
      */
     private static aZv openFirst(aZv editor) {

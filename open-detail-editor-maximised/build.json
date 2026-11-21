@@ -1,4 +1,5 @@
 {
   "release": 21,
-  "kit": true
+  "kit": true,
+  "classpath_mods": ["preferences-composition-framework@1.0.0"]
 }
