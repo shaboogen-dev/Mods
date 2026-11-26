@@ -72,7 +72,7 @@ This is the one acceptance table for the frameworks and the mods. The **Accepted
 | Export: Stems with Bus Effects | `stem-export-bus-fx` | 0.1.0-dev.1 | 0.1.0-dev.2 |
 | Piano Roll: Nudge and Resize by Grid | `sub-division-based-operations` | 0.1.0-dev.6 | 0.2.0-dev.1 |
 | Arranger: Collapse and Expand Shortcuts | `track-collapse-keys` | 0.1.0-dev.2 | 0.2.0-dev.1 |
-| Device: All Lanes View | `all-lanes-view` | 0.1.0-dev.9 | 0.1.0-dev.10 |
+| Device: All Lanes View | `all-lanes-view` | 0.1.0-dev.10 | |
 | Automation: Quantize Points | `quantize-automation-points` | 0.1.0-dev.2 | 0.1.0-dev.3 |
 | Device: Selected Tracks View | `selected-tracks-view` | 0.1.0-dev.2 | 0.1.0-dev.3 |
 | Arranger: Default Track Height | `default-track-height` | | 0.1.0-dev.1 |
